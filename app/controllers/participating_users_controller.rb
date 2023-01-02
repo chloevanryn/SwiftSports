@@ -1,0 +1,2 @@
+class ParticipatingUsersController < ApplicationController
+end
