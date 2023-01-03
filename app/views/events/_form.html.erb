@@ -1,0 +1,16 @@
+<div class=container>
+<%= simple_form_for @event, data: { controller: 'flatpickr' } do |f| %>
+ <div class="card-trip">
+  <h3><%= f.input :title %></h3>
+  <%= f.association :sport %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :date %>
+  <%= f.input :time %>
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <%= f.button :submit, class: "btn btn-secondary" %>
+  <%#= link_to "Back to the event", event_path(@event), class: "btn btn-secondary", input_html: {role: "button"}%>
+</div>
+</div>
+<% end %>
+</div>
