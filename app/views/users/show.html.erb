@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+
+
+<div class="container mt-5">
+<h1>All Users</h1>
+  <% @users.each do |user| %>
+    <div class="row align-items-center">
+      <div class="col-md-2">
+        <%= image_tag "https://i2.wp.com/www.rosiejensing.com/wp-content/uploads/2015/09/jesuspic.jpg", class: 'img-fluid rounded-circle', height: '75', width: '75' %>
+      </div>
+      <div class="col-md-10">
+        <h4><%= link_to user.username, user_path(user) %></h4>
+      </div>
+    </div>
+  <% end %>
+=======
 <div class="container mt-5 text-center">
   <div class="row justify-content-center">
     <div class="col-md-4 mb-3">
@@ -6,4 +22,5 @@
       <p class="text-muted"><%= @user.email %></p>
     </div>
   </div>
+>>>>>>> ecdf6f3a32e357fcdc7b372afa7227dbf57fe522
 </div>
