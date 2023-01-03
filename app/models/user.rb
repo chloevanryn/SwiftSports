@@ -4,7 +4,23 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :events, :sports, dependent: :destroy
-  has_many :groups, through: :user_groups, dependent: :destroy
-  has_many :ratings, through: :user_ratings, dependent: :destroy
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true
+
+  has_many :events, dependent: :destroy
+  has_many :participating_users
+  has_many :events_as_participant, through: :participating_users, source: :events
+
+  has_many :groups, dependent: :destroy
+  has_many :user_groups
+  has_many :groups_as_user, through: :user_groups, source: :groups
+
+  has_many :user_sports, dependent: :destroy
+  has_many :levels, through: :user_sports
+  has_many :sports, through: :user_sports
+
+  has_many :ratings, dependent: :destroy
+  has_many :user_ratings
+  has_many :ratings_as_user, through: :user_ratings, source: :ratings
 end
