@@ -6,6 +6,9 @@ class GroupsController < ApplicationController
   def create
   end
 
+  def random
+  end
+
   def show
   end
 
