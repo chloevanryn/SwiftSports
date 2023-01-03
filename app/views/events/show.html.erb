@@ -14,9 +14,10 @@
 
       <p class="text-center text-secondary">
         <strong>Sport:</strong> <%= @event.sport %><br>
-        <strong>Location:</strong> <%= @event.description %><br>
+        <strong>Description:</strong> <%= @event.description %><br>
         <strong>Location:</strong> <%= @event.location %><br>
-        <strong>Date:</strong> <%= @event.date %>
+        <strong>Date:</strong> <%= @event.date %><br>
+        <strong>Time:</strong> <%= @event.time %>
       </p>
     </div>
   </div>
@@ -41,8 +42,8 @@
     <%= form_with model: [@event, @participating_user], local: true do |form| %>
       <%= form.submit 'Sign up' %>
       <% redirect_to events_path %>
-<% end %>
-  <% end %>
     <% end %>
+  <% end %>
+<% end %>
   </div>
 </div>
