@@ -4,5 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :events, only: [:index, :show, :new, :create]
+  resources :events, only: [:index, :show, :new, :create] do
+    resources :participating_users, only: [:create]
+  end
+
 end
