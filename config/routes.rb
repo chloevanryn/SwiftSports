@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :users, only: [:index, :show]
-  get "events/new", to: "events#new"
-  post "events", to: "events#create"
+  resources :events, only: [:index, :show, :new, :create]
 end
