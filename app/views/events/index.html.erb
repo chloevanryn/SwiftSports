@@ -1,0 +1,7 @@
+<h1>All Sporting Events</h1>
+
+<ul>
+  <% @sporting_events.each do |event| %>
+    <li><%= link_to event.name, event_path(event) %></li>
+  <% end %>
+</ul>
