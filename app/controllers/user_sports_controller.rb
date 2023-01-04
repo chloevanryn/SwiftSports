@@ -7,8 +7,12 @@ class UserSportsController < ApplicationController
 
   def create
     @user_sport = UserSport.new(params[:user_sport_params])
-    @user_sport.save
-    redirect_to user_path
+
+    if @user_sport.save
+      redirect_to user_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
