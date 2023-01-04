@@ -7,11 +7,36 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-    <div class="container">
-      <ul>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Karla', sans-serif;
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="text-primary">Sporting Events</h1>
+      <% if current_user %>
+        <%= link_to 'Create New Event', new_event_path, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <ul class="list-unstyled">
         <% @events.each do |event| %>
-        <li><%= link_to event.title, event_path(event) %></li>
+          <li class="text-secondary"><%= link_to event.title, event_path(event) %></li>
+          <li class="text-secondary" style="muted"><%= event.date %></li>
+          <li class="text-secondary" style="muted"><%= event.time %></li>
+          <li class="text-secondary" style="muted"><%= event.location %></li>
         <% end %>
       </ul>
     </div>
+  </div>
 </div>

@@ -1,15 +1,38 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
 
+<style>
+  body {
+    font-family: 'Karla', sans-serif;
+  }
+
+  .container {
+    background-color: none;
+  }
+
+  h1, h4 {
+    color: #03045E;
+    font-family: 'Karla', sans-serif;
+  }
+
+  .avatar-large {
+  width: 100px;
+  border-radius: 50%;
+}
+</style>
 
 <div class="container mt-5">
-<h1>Athletes Near You!</h1>
-  <% @users.each do |user| %>
-    <div class="row align-items-center">
-      <div class="col-md-2">
-        <%= image_tag "https://i2.wp.com/www.rosiejensing.com/wp-content/uploads/2015/09/jesuspic.jpg", class: 'img-fluid rounded-circle', height: '75', width: '75' %>
+  <h1 class="mb-5 text-center">Athletes Near You!</h1>
+  <div class="cards">
+    <% @users.each do |user| %>
+      <div class="card-category text-center">
+        <%= link_to user_path(user) do %>
+          <img class="avatar-large" alt="avatar" src="https://i2.wp.com/www.rosiejensing.com/wp-content/uploads/2015/09/jesuspic.jpg">
+        <% end %>
+        <div class="card-body">
+          <h4 class="card-title"><%= link_to user.username, user_path(user) %></h4>
+        </div>
       </div>
-      <div class="col-md-10">
-        <h4><%= link_to user.username, user_path(user) %></h4>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

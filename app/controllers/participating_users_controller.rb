@@ -10,4 +10,10 @@ class ParticipatingUsersController < ApplicationController
       render 'events/show'
     end
   end
+
+  def destroy
+    @participant = ParticipatingUser.find(params[:id])
+    @participant.destroy
+    redirect_to event_path(@participant.event), notice: "Successfully cancelled registration."
+  end
 end
