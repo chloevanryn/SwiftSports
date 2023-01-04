@@ -8,6 +8,11 @@ class EventsController < ApplicationController
     @events = Event.where(user_id: current_user)
   end
 
+  def show
+    @event = Event.find(params[:id])
+    @participating_user = ParticipatingUser.new
+  end
+
   def new
     @event = Event.new
   end
