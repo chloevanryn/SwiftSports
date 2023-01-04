@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :show, :index]
 
   resources :users, only: [:index, :show]
-  resources :events, only: [:index, :show, :new, :create]
+
+  resources :events, only: [:index, :show, :new, :create] do
+    resources :participating_users, only: [:create]
+  end
+
   resources :sports, only: [:index]
+
 end
