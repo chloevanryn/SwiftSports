@@ -8,5 +8,72 @@
 
 User.destroy_all
 puts "Creating Users..."
-User.create(email: 'chloe@chloe.com', password: 'password', username: "chloevanryn")
-puts "Users were created!"
+User.create!([{
+  email: 'chloe@chloe.com', password: 'password', username: "chloevanryn"
+},
+{
+  email: 'alan@alan.com', password: 'password', username: "alanglazer"
+},
+{
+  email: 'arthur@arthur.com', password: 'password', username: "arthurshendrik"
+},
+{
+  email: 'olena@olena.com', password: 'password', username: "olenarafie"
+}])
+puts "#{User.count} Users were created!"
+
+Sport.destroy_all
+puts "Creating Sports..."
+Sport.create([{
+  name: 'Football'
+},
+{
+  name: 'Basketball'
+},
+{
+  name: 'Volleyball'
+},
+{
+  name: 'Tennis'
+},
+{
+  name: 'Padel'
+},
+{
+  name: 'Jogging'
+},
+{
+  name: 'Yoga'
+},
+{
+  name: 'Rugby'
+},
+{
+  name: 'Hockey'
+},
+{
+  name: 'Baseball'
+},
+{
+  name: 'Water polo'
+},
+{
+  name: 'Cricket'
+}])
+puts "#{Sport.count} Sports were created!"
+
+Level.destroy_all
+puts "Creating Levels..."
+Level.create([{
+  name: 'Recreational'
+},
+{
+  name: 'Intermediate'
+},
+{
+  name: 'Upper Intermediate'
+},
+{
+  name: 'Competitive'
+}])
+puts "#{Level.count} Levels were created!"
