@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :user_groups, only: [:destroy]
 
-  resources :events, only: [:index, :show, :new, :create, :destroy] do
+  resources :events, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
     resources :participating_users, only: [:create]
     collection do
       get :my_events

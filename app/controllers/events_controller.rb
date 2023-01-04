@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @events = Event.all
     @markers = @events.geocoded.map do |event|
@@ -38,6 +41,16 @@ class EventsController < ApplicationController
       end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to @event
+  end
+
   def destroy
     @event = Event.find(params[:id])
     if @event.user == current_user
@@ -49,6 +62,10 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def event_params
     params.require(:event).permit(:title, :description, :location, :date, :time)
