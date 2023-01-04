@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show, :new, :create] do
     resources :participating_users, only: [:create]
+    collection do
+      get :my_events
+    end
   end
 
   resources :sports, only: [:index]
