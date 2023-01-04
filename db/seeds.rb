@@ -8,6 +8,9 @@
 
 User.destroy_all
 
+puts "Creating Users..."
+
+
 User.create!([{
   email: 'chloe@chloe.com', password: 'password', username: "chloevanryn"
 },
