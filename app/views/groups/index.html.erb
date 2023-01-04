@@ -1,5 +1,22 @@
-<ul>
-  <% @groups.each do |group| %>
-    <li><%= group.title %></li>
-  <% end %>
-</ul>
+<h1 class="text-center" style="padding: 20px">All available groups:</h1>
+
+<div class="container">
+  <div class="cards">
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group) do %>
+        <div class="card">
+          <div class="text-center" style="padding: 20px">
+            <img src="https://images.unsplash.com/photo-1628891890377-57dba2715caf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29jY2VyJTIwdGVhbXxlbnwwfHwwfHw%3D&w=1000&q=80" style="border-radius: 50%; width: 50%" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b><%= group.title %></b></h4>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<div>
+
+<div style="padding: 30px">
+  <button type="button" class="btn btn-info" style="padding: 10px"><%= link_to "Create a new group", new_group_path%></button>
+</div>
