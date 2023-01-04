@@ -1,15 +1,32 @@
-<h1 class="text-center" style="padding: 20px"><%= @group.title%></h1>
-
-<div class="text-center">
-  <img src="https://images.unsplash.com/photo-1628891890377-57dba2715caf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29jY2VyJTIwdGVhbXxlbnwwfHwwfHw%3D&w=1000&q=80" style="border-radius: 50%; width: 30%;">
-</div>
-
-<div class="text-center" style="padding: 40px">
-<h2>Group Description:</h2>
-<h2><%= @group.description%></h2>
-</div>
-
 <div class="container">
-<h3>Group Members:</h3>
-<p>Cards with profile pictures of members</p>
+  <h1 class="text-center" style="padding: 20px"><%= @group.title%></h1>
+
+  <div class="text-center">
+    <img src="https://images.unsplash.com/photo-1628891890377-57dba2715caf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29jY2VyJTIwdGVhbXxlbnwwfHwwfHw%3D&w=1000&q=80" style="border-radius: 50%; width: 30%;">
+  </div>
+
+  <div class="text-center" style="padding: 40px">
+  <h2>Group Description:</h2>
+  <h3><%= @group.description %></h3>
+  </div>
+</div>
+
+<div class="text-center" style="padding: 20px">
+  <button type="button" class="btn btn-primary"><%= link_to "Join the group", new_group_path, class: "a-primary"%></button>
+</div>
+<%# add an if condition to change the button from Join the Group to Leave the group!%>
+
+<div class="container" style="padding: 20px">
+  <h3>Group Members:</h3>
+    <% @user_group.each do |user_group| %>
+      <%= link_to user_group_path(user_group) do %>
+        <div class="card">
+          <div class="text-center" style="padding: 20px">
+            <div class="container" style="padding: 20px">
+              <h4 class="b-primary"><%= user_group.username %></h4>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 </div>
