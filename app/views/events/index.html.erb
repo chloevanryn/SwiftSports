@@ -29,12 +29,17 @@
 
   <div class="row mt-5">
     <div class="col-12">
-      <ul class="list-unstyled">
+      <ul class="list-group">
         <% @events.each do |event| %>
-          <li class="text-secondary"><%= link_to event.title, event_path(event) %></li>
-          <li class="text-secondary" style="muted"><%= event.date %></li>
-          <li class="text-secondary" style="muted"><%= event.time %></li>
-          <li class="text-secondary" style="muted"><%= event.location %></li>
+          <li class="list-group-item">
+            <%= link_to event.title, event_path(event), class: "text-primary" %>
+            <br>
+            <span class="text-secondary" style="muted"><%= event.date %></span>
+            <br>
+            <span class="text-secondary" style="muted"><%= event.time %></span>
+            <br>
+            <span class="text-secondary" style="muted"><%= event.location %></span>
+          </li>
         <% end %>
       </ul>
     </div>
