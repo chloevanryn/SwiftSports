@@ -5,7 +5,10 @@
   <%= f.association :sport %>
   <%= f.association :level %>
   <%= f.input :description %>
-  <%= f.input :location %>
+  <%= f.input :location,
+    input_html: {data: {address_autocomplete_target: "address"}},
+    wrapper_html: {data: {controller: "address-autocomplete",
+    address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
   <%= f.input :date %>
   <%= f.input :time %>
   <div class="d-grid gap-2 col-6 mx-auto">
