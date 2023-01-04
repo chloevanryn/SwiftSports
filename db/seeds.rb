@@ -10,3 +10,8 @@ User.destroy_all
 puts "Creating Users..."
 User.create(email: 'chloe@chloe.com', password: 'password', username: "chloevanryn")
 puts "Users were created!"
+
+Sport.destroy_all
+puts "Creating Sports..."
+Sport.create(name: "Hockey")
+puts "Sports were created!"
