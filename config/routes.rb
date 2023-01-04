@@ -8,5 +8,14 @@ Rails.application.routes.draw do
   resources :user_sports, only: [:new, :create]
 
   resources :events, only: [:index, :show, :new, :create]
+  
+  resources :events, only: [:index, :show, :new, :create] do
+    resources :participating_users, only: [:create]
+    collection do
+      get :my_events
+    end
+  end
+
+  resources :sports, only: [:index]
 
 end
