@@ -1,0 +1,20 @@
+<html>
+  <body style="background-color: white;">
+    <div class="container">
+    <h1>About <%= @user %></h1>
+        <div class=container>
+          <%= simple_form_for [@user, @rating] do |f| %>
+            <div class="card-trip">
+            <h3><%= @user.username %></h3>
+              <p><%= f.input :comment %></p>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <%= f.button :submit, class: "btn btn-secondary" %>
+                  <%= link_to "Back to the user", user_path(@user), class: "btn btn-secondary", input_html: {role: "button"}%>
+                  <%#= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-secondary", input_html: {role: "button"}%>
+                </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </body>
+</html>
