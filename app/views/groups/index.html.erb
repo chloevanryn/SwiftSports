@@ -1,22 +1,37 @@
+
 <h1 class="text-center" style="padding: 30px">Find a group to join or create your own one!</h1>
 
 <div class="text-center" style="padding: 20px">
   <button type="button" class="btn btn-primary"><%= link_to "Create a new group", new_group_path, class: "a-primary"%></button>
 </div>
 
+<style>
+  .card {
+    height: 300px;
+    width: 300px;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+  }
+
+  .pic {
+    background-position: center;
+    background-size: cover;
+  }
+</style>
+
 <div class="container">
-  <div class="cards">
-    <% @groups.each do |group| %>
-      <%= link_to group_path(group) do %>
-        <div class="card">
-          <div class="text-center" style="padding: 20px">
-            <img src="https://images.unsplash.com/photo-1628891890377-57dba2715caf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29jY2VyJTIwdGVhbXxlbnwwfHwwfHw%3D&w=1000&q=80" style="border-radius: 50%; width: 50%" alt="Avatar" style="width:100%">
-            <div class="container" style="padding: 20px">
-              <h4 class="b-primary"><%= group.title %></h4>
-            </div>
+  <div class="row justify-content-center">
+    <div class="cards">
+      <% @groups.each do |group| %>
+        <%= link_to group_path(group), class: "b-primary" do %>
+          <div class="card">
+              <div class="img-thumbnail pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo.key, crop: :fill %>')"></div>
+              <div class="container text-center" style="padding: 20px; position: absolute; bottom: 10px">
+                <h4 class="b-primary"><b><%= group.title %></b></h4>
+              </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 <div>
