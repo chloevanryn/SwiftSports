@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :user_groups, only: [:create]
   end
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :ratings, only: [:new, :create]
+  end
+
 
   resources :user_sports, only: [:new, :create]
 
