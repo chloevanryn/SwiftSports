@@ -32,10 +32,20 @@ class EventsController < ApplicationController
     @event.sport = @sport
     @event.level = @level
       if @event.save
-        redirect_to @event
+        redirect_to event_path(@event)
       else
         render :new, status: :unprocessable_entity
       end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.user == current_user
+      @event.destroy
+      redirect_to events_path, notice: "Event successfully deleted."
+    else
+      redirect_to event_path(@event), alert: "You can only delete events that you have created."
+    end
   end
 
   private

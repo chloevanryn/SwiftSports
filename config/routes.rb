@@ -2,17 +2,20 @@ Rails.application.routes.draw do
   devise_for :users, controller: { registrations: "registrations" }
 
   root to: "pages#home"
-  resources :groups, only: [:new, :create, :show, :index]
+  resources :groups, only: [:new, :create, :show, :index] do
+    resources :user_groups, only: [:create]
+  end
 
   resources :users, only: [:index, :show]
 
   resources :user_sports, only: [:new, :create]
 
-  resources :events, only: [:index, :show, :new, :create]
 
   resources :participating_users, only: [:destroy]
 
-  resources :events, only: [:index, :show, :new, :create] do
+  resources :user_groups, only: [:destroy]
+
+  resources :events, only: [:index, :show, :new, :create, :destroy] do
     resources :participating_users, only: [:create]
     collection do
       get :my_events

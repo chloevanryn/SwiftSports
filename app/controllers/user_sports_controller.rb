@@ -1,5 +1,4 @@
 class UserSportsController < ApplicationController
-
   def new
     @user = current_user
     @sport = Sport.all
