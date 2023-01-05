@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  after_create :add_owner_as_participant
+
   has_many :participating_users
 
   belongs_to :user
@@ -7,4 +9,10 @@ class Event < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  private
+
+  def add_owner_as_participant
+    @participating_user = ParticipatingUser.create(event: self, user: self.user)
+  end
 end

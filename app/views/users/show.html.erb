@@ -22,7 +22,20 @@
       <%= cl_image_tag @user.photo.key, class: 'img-fluid rounded-circle mx-auto', height: '200', width: '200' %>
       <h1 class="mt-3"><%= @user.username %></h1>
       <p class="text-muted"><%= @user.email %></p>
-      <p class="text-muted"><%= @user.user_sports %></p>
+      <% @user.sports.each do |sport| %>
+      <%= sport.name %>
+      <% end %>
+      <p class="text-muted"><% @user.user_sports %></p>
+      <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-secondary", input_html: {role: "button"}%>
     </div>
   </div>
+    <div class="conteiner">
+      <div class="row" style="justify-content: center">
+        <div class="col-12 col-md-6">
+          <% @user.ratings.each do |f| %>
+          <p><%= f.comment %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>
