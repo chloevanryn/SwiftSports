@@ -14,28 +14,32 @@
 <div class="text-center" style="padding: 20px">
   <% if current_user %>
     <% if current_user.user_groups.find_by(group_id: @group.id) %>
-      <button class="btn btn-primary" disabled>Signed Up!</button>
       <%= link_to "Leave Group",
       user_group_path(current_user.user_groups.find_by(group_id: @group.id)),
-      data: { turbo_method: :delete, confirm: "Are you sure you want to cancel your registration?" },
+      data: { turbo_method: :delete, confirm: "Are you sure you want to leave the group?" },
       class: "btn btn-danger" %>
     <% else %>
-    <%= link_to 'Join the group', group_user_groups_path(params[:id]), data: { turbo_method: :post }%>
+    <%= link_to 'Join the group', group_user_groups_path(params[:id]), data: { turbo_method: :post }, class: "btn btn-primary" %>
     <% end %>
   <% end %>
 </div>
 
 <div class="container" style="padding: 20px">
   <h3>Group Members:</h3>
+</div>
+<div class="container" style="padding: 20px">
+  <div class="cards">
     <% @users.each do |user| %>
       <%= link_to user_path(user) do %>
-        <div class="card">
+        <div class="card" style="border-radius: 110px">
           <div class="text-center" style="padding: 20px">
             <div class="container" style="padding: 20px">
+              <img src="https://cdn.shopify.com/s/files/1/0321/7404/7368/products/S149_384x480.jpg?v=1632929989" style="border-radius: 19px; width: 65%">
               <h4 class="b-primary"><%= user.username %></h4>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
+  </div>
 </div>
