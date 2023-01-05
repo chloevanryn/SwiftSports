@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   end
 
   resources :sports, only: [:index]
+  resources :levels, only: [:index]
 
 end

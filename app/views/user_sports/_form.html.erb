@@ -1,12 +1,12 @@
 <div class="container">
   <%= simple_form_for(@user_sport) do |f| %>
-    <%= f.association :sport,
+    <%= f.input :sport,
       as: :radio_buttons,
       collection_wrapper_tag: 'div',
       collection_wrapper_class: 'sport-wrapper',
       item_wrapper_class: 'sport-item',
       input_html: {class: 'sport-selector'},
-      collection: Snippet::SPORTS %>
+      collection: UserSport::SPORTS %>
     <%= f.submit %>
   <% end %>
 </div>
