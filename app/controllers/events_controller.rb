@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     @event.sport = @sport
     @event.level = @level
       if @event.save
-        redirect_to @event
+        redirect_to event_path(@event)
       else
         render :new, status: :unprocessable_entity
       end
