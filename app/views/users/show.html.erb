@@ -25,7 +25,7 @@
       <% @user.sports.each do |sport| %>
       <%= sport.name %>
       <% end %>
-      <p class="text-muted"><%= @user.user_sports %></p>
+      <p class="text-muted"><% @user.user_sports %></p>
       <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-secondary", input_html: {role: "button"}%>
     </div>
   </div>
