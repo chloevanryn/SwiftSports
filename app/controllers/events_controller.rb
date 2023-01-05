@@ -38,6 +38,16 @@ class EventsController < ApplicationController
       end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.user == current_user
+      @event.destroy
+      redirect_to events_path, notice: "Event successfully deleted."
+    else
+      redirect_to event_path(@event), alert: "You can only delete events that you have created."
+    end
+  end
+
   private
 
   def event_params
