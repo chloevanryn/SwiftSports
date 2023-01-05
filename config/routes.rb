@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controller: { registrations: "registrations" }
+
   root to: "pages#home"
   resources :groups, only: [:new, :create, :show, :index] do
     resources :user_groups, only: [:create]
@@ -25,5 +26,6 @@ Rails.application.routes.draw do
   end
 
   resources :sports, only: [:index]
+  resources :levels, only: [:index]
 
 end

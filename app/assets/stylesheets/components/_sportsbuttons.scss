@@ -1,0 +1,72 @@
+.sport-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.sport-item {
+  flex: 0 0 30%;
+}
+
+.sport-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.sport-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 130px;
+  height: 130px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 110px;
+  padding: 10px 10px 30px 10px;
+  margin: 5px;
+  border: 1px solid #EAEAEA;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.sport-selector:checked + label {
+  color: #000000 !important;
+}
+
+
+#user_sport_sport_football + label {
+  color: #000000;
+  background: image-url('football-solid.svg'), #03045E;
+  background-size: 50% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+#user_sport_sport_football:checked + label {
+  background-color: #FD1015;
+  border-color: #00b4d8;
+  background: image-url('football-solid.svg'), #00b4d8;
+  background-size: 50% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+
+#user_sport_sport_javascript + label {
+  color: #FFC65A;
+}
+
+#user_sport_sport_javascript:checked + label {
+  background-color: #FFC65A;
+  border-color: #FFC65A;
+}
+
+
+#user_sport_sport_css + label {
+  color: #62DDF5;
+}
+
+#user_sport_sport_css:checked + label {
+  background-color: #62DDF5;
+  border-color: #62DDF5;
+}
