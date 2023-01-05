@@ -1,15 +1,12 @@
-<%= simple_form_for(@user_sport) do |f| %>
-  <%= f.association :sport %>
-  <%= f.submit %>
-<% end %>
-
 <div class="container">
-  <div class="row justify-content-center">
-      <% @sport.each do |sport| %>
-        <div class="col-4">
-          <img class="d-flex rounded-circle shadow-4-strong" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjh-UM1sTSprNOZ3M01kf8UUVtWTfFCHAgvw&usqp=CAU">
-          <h4 class="row justify-content-center"><%= sport.name %></h4>
-        </div>
-      <% end %>
-  </div>
+  <%= simple_form_for(@user_sport) do |f| %>
+    <%= f.association :sport,
+      as: :radio_buttons,
+      collection_wrapper_tag: 'div',
+      collection_wrapper_class: 'sport-wrapper',
+      item_wrapper_class: 'sport-item',
+      input_html: {class: 'sport-selector'},
+      collection: Snippet::SPORTS %>
+    <%= f.submit %>
+  <% end %>
 </div>
