@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @participating_user = ParticipatingUser.new
+    @chatroom = @event.chatroom
   end
 
   def new
