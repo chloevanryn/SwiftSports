@@ -1,3 +1,10 @@
+<style>
+ body {
+    font-family: 'Karla', sans-serif;
+    background-color: #E3E2DE;
+  }
+</style>
+
 <section class="vh-100" style="background-color: #eee;">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
