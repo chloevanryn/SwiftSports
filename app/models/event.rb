@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   after_create :add_owner_as_participant
 
   has_many :participating_users
+  has_many :chatrooms
 
   belongs_to :user
   belongs_to :sport

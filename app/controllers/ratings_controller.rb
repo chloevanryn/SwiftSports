@@ -7,7 +7,7 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new(rating_params)
-    @user = current_user
+    @user = User.find(params[:user_id])
     @rating.user = @user
 
       if @rating.save
