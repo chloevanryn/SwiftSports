@@ -164,7 +164,7 @@ puts "Creating groups..."
 
 group1 = Group.new({title: "Soccer clash", description: "This group is for players interested in playing soccer on the weekends in the heart of Brazil, Rio de Janeiro", user_id: 1})
 group1.photo.attach(io: file_group1, filename: "group1.png", content_type: "image/png")
-group1.save!
+group1.save
 
 group2 = Group.new({title: "Ice hockey for cowards", description: "non-contact ice hockey on thursdays and sundays at 6pm", user_id: 2})
 group2.photo.attach(io: file_group2, filename: "group2.png", content_type: "image/png")
