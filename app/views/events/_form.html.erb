@@ -1,20 +1,20 @@
-<div class=container>
-<%= simple_form_for @event, data: { controller: 'flatpickr' } do |f| %>
- <div class="card-trip">
-  <h3><%= f.input :title %></h3>
-  <%= f.association :sport %>
-  <%= f.association :level %>
-  <%= f.input :description %>
-  <%= f.input :location,
-    input_html: {data: {address_autocomplete_target: "address"}},
-    wrapper_html: {data: {controller: "address-autocomplete",
-    address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-  <%= f.input :date %>
-  <%= f.input :time %>
-  <div class="d-grid gap-2 col-6 mx-auto">
-  <%= f.button :submit, class: "btn btn-secondary" %>
-  <%#= link_to "Back to the event", event_path(@event), class: "btn btn-secondary", input_html: {role: "button"}%>
-</div>
-</div>
-<% end %>
+<div class="container" style="padding: 50px">
+  <h1 class="text-center"> Create a new event:</h1>
+  <%= simple_form_for @event, data: { controller: 'flatpickr' } do |f| %>
+  <div class="card-trip">
+    <h3><%= f.input :title %></h3>
+    <%= f.association :sport %>
+    <%= f.association :level %>
+    <%= f.input :description %>
+    <%= f.input :location,
+      input_html: {data: {address_autocomplete_target: "address"}},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+    <%= f.input :date %>
+    <%= f.input :time %>
+    <div class="d-grid gap-2 col-6 mx-auto">
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= link_to "Back to all events", events_path, class: "btn btn-outline-secondary", input_html: {role: "button"}%>
+    </div>
+  </div>
+  <% end %>
 </div>

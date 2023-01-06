@@ -1,5 +1,12 @@
+<style>
+ body {
+    font-family: 'Karla', sans-serif;
+    background-color: #E3E2DE;
+  }
+</style>
+
 <html>
-  <body style="background-color: white;">
+  <body>
     <div class="container">
     <h1 class="form_header">All your events:</h1>
       <% current_user.events.each do |event| %>
