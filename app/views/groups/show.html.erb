@@ -1,8 +1,26 @@
+<style>
+  .back {
+    position: absolute;
+    right: 0;
+    top: 80px;
+    padding: 20px;
+  }
+
+  .joined_users {
+    border-radius: 19px;
+    width: 65%;
+  }
+</style>
+
 <div class="container">
-  <h1 class="text-center" style="padding: 20px"><%= @group.title%></h1>
+  <h1 class="text-center" style="padding: 40px"><%= @group.title%></h1>
+
+  <div class="text-center back" style="padding: 10px">
+    <button type="button" class="btn btn-primary btn-sm"><%= link_to "Go back to all groups",groups_path, class: "a-primary"%></button>
+  </div>
 
   <div class="text-center">
-    <img src="https://images.unsplash.com/photo-1628891890377-57dba2715caf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29jY2VyJTIwdGVhbXxlbnwwfHwwfHw%3D&w=1000&q=80" style="border-radius: 50%; width: 30%;">
+    <%= cl_image_tag @group.photo.key, class: 'img-fluid rounded mx-auto', height: '350', width: '350' %>
   </div>
 
   <div class="text-center" style="padding: 40px">
@@ -17,9 +35,9 @@
       <%= link_to "Leave Group",
       user_group_path(current_user.user_groups.find_by(group_id: @group.id)),
       data: { turbo_method: :delete, confirm: "Are you sure you want to leave the group?" },
-      class: "btn btn-danger" %>
+      class: "btn btn-outline-danger btn-lg" %>
     <% else %>
-    <%= link_to 'Join the group', group_user_groups_path(params[:id]), data: { turbo_method: :post }, class: "btn btn-primary" %>
+    <%= link_to 'Join the group', group_user_groups_path(params[:id]), data: { turbo_method: :post }, class: "btn btn-primary btn-lg" %>
     <% end %>
   <% end %>
 </div>
@@ -29,16 +47,21 @@
 </div>
 <div class="container" style="padding: 20px">
   <div class="cards">
-    <% @users.each do |user| %>
-      <%= link_to user_path(user) do %>
-        <div class="card" style="border-radius: 110px">
-          <div class="text-center" style="padding: 20px">
-            <div class="container" style="padding: 20px">
-              <img src="https://cdn.shopify.com/s/files/1/0321/7404/7368/products/S149_384x480.jpg?v=1632929989" style="border-radius: 19px; width: 65%">
-              <h4 class="b-primary"><%= user.username %></h4>
+    <% if @users.empty?%>
+      <h4>This group has no members</h4>
+      <h4>&#128550</h4>
+    <% else %>
+      <% @users.each do |user| %>
+        <%= link_to user_path(user), class: "a-primary" do %>
+          <div class="card" style="border-radius: 110px">
+            <div class="text-center" style="padding: 20px">
+              <div class="container" style="padding: 20px">
+                <%= cl_image_tag user.photo.key, class: 'img-fluid rounded mx-auto', height: '150', width: '150' %>
+                <h4 class="b-primary" style="margin: auto; padding: 5px"><%= user.username %></h4>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

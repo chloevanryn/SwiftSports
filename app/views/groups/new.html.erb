@@ -1,7 +1,9 @@
-<h1>Groups</h1>
+<h1 class="text-center" style="padding: 20px">Create a new group:</h1>
 
-<%= simple_form_for [@group] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.submit "Create Group", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <%= render 'form' %>
+</div>
+
+<div class="text-center back" style="padding: 10px">
+    <button type="button" class="btn btn-primary btn-sm"><%= link_to "Go back to all groups",groups_path, class: "a-primary"%></button>
+  </div>

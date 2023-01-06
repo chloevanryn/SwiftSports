@@ -1,13 +1,9 @@
 
-<h1 class="text-center" style="padding: 30px">Find a group to join or create your own one!</h1>
-
-<div class="text-center" style="padding: 20px">
-  <button type="button" class="btn btn-primary"><%= link_to "Create a new group", new_group_path, class: "a-primary"%></button>
-</div>
+<h1 class="text-center" style="padding: 50px">Find a group to join or create your own one! &#127942</h1>
 
 <style>
   .card {
-    height: 300px;
+    height: 350px;
     width: 300px;
     display: grid;
     grid-template-rows: 2fr 1fr;
@@ -17,17 +13,22 @@
     background-position: center;
     background-size: cover;
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 </style>
 
-<div class="container">
+<div class="container" style="padding: 20px">
+<div class="text-center" style="padding: 50px">
+  <button type="button" class="btn btn-primary"><%= link_to "Create a new group", new_group_path, class: "a-primary"%></button>
+</div>
   <div class="row justify-content-center">
     <div class="cards">
       <% @groups.each do |group| %>
         <%= link_to group_path(group), class: "b-primary" do %>
           <div class="card">
-              <div class="img-thumbnail pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo.key, crop: :fill %>')"></div>
-              <div class="container text-center" style="padding: 20px; position: absolute; bottom: 10px">
-                <h4 class="b-primary"><b><%= group.title %></b></h4>
+            <div class="img-thumbnail pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo.key, crop: :fill %>')"></div>
+              <div class="container justify-content-center text-center" style="margin: auto">
+                <h4 class="b-primary" style="font-family: 'Anton', sans-serif;"><b><%= group.title.upcase %></b></h4>
               </div>
           </div>
         <% end %>
