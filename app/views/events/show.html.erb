@@ -39,6 +39,12 @@
         </ul>
   </div>
 </div>
+<div class="row mt-5">
+    <div class="col-12">
+        <h3 class="text-center text-primary">Chat for <%= @event.title %></h3>
+          <%= link_to 'Join the chat for ', chatroom_path(@chatroom) %><%= @event.title %>
+    </div>
+</div>
  <div class="row mt-5">
     <div class="col-12 text-center">
       <% if current_user %>

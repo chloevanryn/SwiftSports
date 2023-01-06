@@ -1,8 +1,9 @@
 class Event < ApplicationRecord
   after_create :add_owner_as_participant
+  after_create :create_chatroom
 
   has_many :participating_users
-  has_many :chatrooms
+  has_one :chatroom
 
   belongs_to :user
   belongs_to :sport
@@ -15,5 +16,11 @@ class Event < ApplicationRecord
 
   def add_owner_as_participant
     @participating_user = ParticipatingUser.create(event: self, user: self.user)
+  end
+
+  def create_chatroom
+    @chatroom = Chatroom.new(name: self.title)
+    @chatroom.event = self
+    @chatroom.save!
   end
 end

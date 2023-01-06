@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :groups, only: [:new, :create, :show, :index] do
     resources :user_groups, only: [:create]
-    resources :chatrooms, only: [:new, :create, :show]
   end
 
   resources :users, only: [:index, :show] do
@@ -20,13 +19,15 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
     resources :participating_users, only: [:create]
-    resources :chatrooms, only: [:new, :create, :show]
     collection do
       get :my_events
     end
   end
 
+  resources :chatrooms, only: [:show] do
+    resources :messages, only: [:new, :create]
+  end
+
   resources :sports, only: [:index]
   resources :levels, only: [:index]
-
 end
