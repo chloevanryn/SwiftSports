@@ -31,7 +31,7 @@
     <% @users.each do |user| %>
       <div class="card-category text-center">
         <%= link_to user_path(user) do %>
-          <%= cl_image_tag current_user.photo.key, class: 'rounded-circle pic', height: '200', width: '200' %>
+          <%= cl_image_tag user.photo.key, class: 'rounded-circle pic', height: '200', width: '200' %>
         <% end %>
         <div class="card-body">
           <h4 class="card-title"><%= link_to user.username, user_path(user) %></h4>
