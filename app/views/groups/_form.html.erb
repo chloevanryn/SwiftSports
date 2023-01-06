@@ -2,5 +2,8 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :photo, as: :file, required: true%>
-  <%= f.submit "Create Group", class: "btn btn-primary" %>
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= link_to "Back to all groups", groups_path, class: "btn btn-outline-secondary", input_html: {role: "button"}%>
+  </div>
 <% end %>

@@ -1,3 +1,10 @@
+<style>
+ body {
+    font-family: 'Karla', sans-serif;
+    background-color: #E3E2DE;
+  }
+</style>
+
 <%= form_for @event, url: event_path(@event), method: :patch do |f| %>
   <%= render 'form' %>
 <% end %>
