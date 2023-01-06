@@ -1,4 +1,4 @@
-<section class="vh-100" style="background-color: #eee;">
+<section class="vh-100" style="background-color: #E3E2DE">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
     <div class="container h-100">
@@ -44,18 +44,22 @@
                         <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" },
-                        wrapper_html: { class: 'flex-grow-1' }%>
+                        wrapper_html: { class: 'flex-grow-1' } %>
                       </div>
 
-                      <%= f.input :photo, as: :file, required: true %>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-solid fa-image fa-lg me-3 fa-fw"></i>
+                        <%= f.input :photo, as: :file,
+                        required: true,
+                        wrapper_html: { class: 'flex-grow-1' } %>
+                      </div>
 
-                      <div class="form-actions">
+                      <div class="form-actions" style="justify-content: center">
 
-                        <%= f.button :submit, "Sign Up" %>
+                        <%= f.button :submit, "Sign Up", class: "btn btn-primary", input_html: {role: "button"}%>
                         <% end %>
                       </div>
                       </div>
-                      <!-- redirect to choose sports -->
 
                   </div>
                   <%= render "devise/shared/links" %>

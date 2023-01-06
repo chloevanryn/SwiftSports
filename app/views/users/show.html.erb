@@ -10,16 +10,25 @@
     background-color: none;
   }
 
-  h1, p {
+  h1, h4 {
     color: #03045E;
     font-family: 'Karla', sans-serif;
   }
+
+  .pic {
+    object-fit: cover;
+  }
+
+  .avatar-large {
+  width: 100px;
+  border-radius: 50%;
+}
 </style>
 
 <div class="container mt-5 text-center">
   <div class="row justify-content-center">
     <div class="col-md-4 mb-3">
-      <%= cl_image_tag @user.photo.key, class: 'img-fluid rounded-circle mx-auto', height: '200', width: '200' %>
+      <%= cl_image_tag @user.photo.key, class: 'rounded-circle pic', height: '200', width: '200' %>
       <h1 class="mt-3"><%= @user.username %></h1>
       <p class="text-muted"><%= @user.email %></p>
       <% @user.user_sports.each do |sport| %>
