@@ -1,11 +1,11 @@
 <div class="container">
   <%= simple_form_for(@user_sport) do |f| %>
     <%= f.input :sport,
-      as: :radio_buttons,
+      as: :check_boxes,
       collection_wrapper_tag: 'div',
       collection_wrapper_class: 'sport-wrapper',
       item_wrapper_class: 'sport-item',
-      input_html: {class: 'sport-selector'},
+      input_html: {class: 'sport-selector', multiple: true},
       collection: UserSport::SPORTS %>
     <%= f.submit %>
   <% end %>

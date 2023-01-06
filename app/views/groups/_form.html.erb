@@ -1,0 +1,6 @@
+<%= simple_form_for [@group] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file, required: true%>
+  <%= f.submit "Create Group", class: "btn btn-primary" %>
+<% end %>
