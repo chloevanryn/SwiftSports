@@ -1,4 +1,4 @@
-<div class="container">
+
   <%= simple_form_for(@user_sport) do |f| %>
     <%= f.input :sport,
       as: :check_boxes,
@@ -6,7 +6,9 @@
       collection_wrapper_class: 'sport-wrapper',
       item_wrapper_class: 'sport-item',
       input_html: {class: 'sport-selector', multiple: true},
+      label_text: false,
       collection: @collection %>
-    <%= f.submit %>
+    <%= f.button :submit, "Add Sports",
+      class: "btn btn-primary",
+      input_html: {role: "button"} %>
   <% end %>
-</div>

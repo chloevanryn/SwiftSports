@@ -15,7 +15,7 @@ class UserSportsController < ApplicationController
     if @sports == @user_sport
       puts :scope
     else
-    @sports.each do |sport|
+      @sports.each do |sport|
       @user_sport = UserSport.new
       @user_sport.user = current_user
       @user_sport.sport = sport
@@ -23,7 +23,7 @@ class UserSportsController < ApplicationController
       @user_sport.save
       end
       redirect_to user_path(current_user)
-    # @user_sport.level = @level
+      # @user_sport.level = @level
     end
-    end
+  end
 end
