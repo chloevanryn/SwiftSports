@@ -11,6 +11,14 @@
     width: 65%;
   }
 
+  h1, h2, h3, h4 {
+    color: #03045E;
+    font-family: 'Karla', sans-serif;
+  }
+
+  .pic {
+    object-fit: cover;
+  }
 
   body {
       font-family: 'Karla', sans-serif;
@@ -32,18 +40,18 @@
 </div>
 
 <div class="text-center" style="padding: 20px">
-  <div class="d-grid gap-4 col-1 mx-auto">
+  <div class="d-grid gap-4 col-3 mx-auto">
     <% if current_user %>
       <% if current_user.user_groups.find_by(group_id: @group.id) %>
         <%= link_to "Leave Group",
         user_group_path(current_user.user_groups.find_by(group_id: @group.id)),
         data: { turbo_method: :delete, confirm: "Are you sure you want to leave the group?" },
-        class: "btn btn-outline-danger btn-lg" %>
+        class: "btn btn-primary btn-lg" %>
       <% else %>
       <%= link_to 'Join the group', group_user_groups_path(params[:id]), data: { turbo_method: :post }, class: "btn btn-primary btn-lg" %>
       <% end %>
     <% end %>
-    <%= link_to "Back to all groups", groups_path, class: "btn btn-outline-secondary"%>
+    <%= link_to "Back to all groups", groups_path, class: "btn btn-primary btn-lg"%>
   </div>
 </div>
 
@@ -61,13 +69,45 @@
           <div class="card" style="border-radius: 110px">
             <div class="text-center" style="padding: 20px">
               <div class="container" style="padding: 20px">
-                <%= cl_image_tag user.photo.key, class: 'img-fluid rounded mx-auto', height: '150', width: '150' %>
+                <%= cl_image_tag user.photo.key, class: 'rounded-circle pic', height: '150', width: '150' %>
                 <h4 class="b-primary" style="margin: auto; padding: 5px"><%= user.username %></h4>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 text-center" style="padding: 20px">
+      <h3 class="text-center">Posts for <%= @group.title %> : </h3>
+      <div class="d-grid gap-4 col-3 mx-auto">
+        <%= link_to 'Share your news with us!', group_path(@group), class: "btn btn-primary btn-lg" %>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-12">
+    <ul class="cards">
+      <% @group.posts.each do |post| %>
+        <li class="list-group-item text-center card" style="background-color: #EDEDED">
+          <%= cl_image_tag post.user.photo.key, class: 'rounded-circle pic', height: '150', width: '150' %>
+          <span class="text-secondary" style="muted; font-size: 20px"><strong><%= post.user.username %></strong></span>
+          <br>
+          <span class="text-secondary" style="muted"><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></span>
+          <br>
+          <span class="text-secondary" style="muted"></span>
+          <br>
+          <span class="text-secondary" style="muted"><%= post.content %></span>
+        </li>
+      <% end %>
+    </ul>
+    <%= simple_form_for [@group, @post], html: {class: "d-flex"} do |f| %>
+    <%= f.input :content, label: false, placeholder: "Post ##{@group.title}", wrapper_html: {class: "flex-grow-1"} %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
     <% end %>
   </div>
 </div>

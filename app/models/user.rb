@@ -24,5 +24,7 @@ class User < ApplicationRecord
   has_many :user_ratings
   has_many :ratings_as_user, through: :user_ratings, source: :ratings
 
+  has_many :posts
+
   has_one_attached :photo
 end
