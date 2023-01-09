@@ -3,7 +3,9 @@ class UserSportsController < ApplicationController
     @user = current_user
     @sport = Sport.all
     # @level = Level.all
+    @user_sports = current_user.sports.map { |user_sport| user_sport.name }
     @user_sport = UserSport.new
+    @collection = UserSport::SPORTS.map { |name| [name, name, disabled: @user_sports.include?(name)] }
   end
 
   def create
