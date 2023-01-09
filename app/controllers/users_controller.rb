@@ -7,5 +7,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # add params require for adding a picture
 end
