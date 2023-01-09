@@ -1,0 +1,13 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
+  background-color: $my_blue;
+}
+.avatar {
+ vertical-align: middle;
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+}
