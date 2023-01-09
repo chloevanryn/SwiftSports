@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :photo])
 
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
   end
 
   # def after_sign_up_path_for(users)
