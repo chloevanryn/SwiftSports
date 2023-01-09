@@ -1,0 +1,8 @@
+<div id="message-<%= message.id %>">
+  <small>
+      <%= cl_image_tag message.user.photo.key, class: 'rounded-circle pic', height: '70', width: '70' %>
+      <strong><%= message.user.username %></strong>
+      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p><%= message.conten %></p>
+</div>
