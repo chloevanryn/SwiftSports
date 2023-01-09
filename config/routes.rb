@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/my_events', to: 'events#my_events'
   resources :groups, only: [:new, :create, :show, :index] do
     resources :user_groups, only: [:create]
+    resources :posts, only: [:new, :create]
   end
 
   resources :users, only: [:index, :show] do
