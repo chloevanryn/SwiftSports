@@ -1,0 +1,9 @@
+<%= form_for @user, url: user_path(@user), method: :patch do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :photo %>
+  <%= f.file_field :photo %>
+  <%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>

@@ -32,7 +32,11 @@
       <h1 class="mt-3"><%= @user.username %></h1>
       <p class="text-muted"><%= @user.email %></p>
       <% @user.user_sports.each do |sport| %>
-      <%= sport.sport.name %>
+        <%= sport.sport.name %>
+      <% end %>
+      <%= link_to "My Events", my_events_path, class: "btn btn-primary" %>
+      <% if @user == current_user %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-secondary" %>
       <% end %>
       <p class="text-muted"><% @user.user_sports %></p>
       <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-secondary", input_html: {role: "button"}%>
@@ -42,7 +46,7 @@
       <div class="row" style="justify-content: center">
         <div class="col-12 col-md-6">
           <% @user.ratings.each do |f| %>
-          <p><%= f.comment %></p>
+            <p><%= f.comment %></p>
           <% end %>
         </div>
       </div>
