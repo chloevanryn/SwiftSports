@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   root to: "pages#home"
+  get '/my_events', to: 'events#my_events'
   resources :groups, only: [:new, :create, :show, :index] do
     resources :user_groups, only: [:create]
   end
