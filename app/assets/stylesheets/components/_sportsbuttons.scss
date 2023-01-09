@@ -1,3 +1,4 @@
+
 .sport-wrapper {
   display: flex;
   justify-content: space-between;
@@ -30,10 +31,9 @@
 }
 
 .sport-selector:checked + label {
-  border-color: #48cae4 !important;
+  border-color: #3B6B94 !important;
   border-width: thick medium;
 }
-
 
 #user_sport_sport_football + label {
   background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1927px-Football_%28soccer_ball%29.svg.png'), #FFFFFF;

@@ -1,5 +1,5 @@
 class UserSport < ApplicationRecord
-  SPORTS = ['Football', 'Basketball', 'Volleyball', 'Tennis', 'Padel', 'Jogging', 'Yoga', 'Rugby', 'Hockey', 'Baseball', 'Water polo', 'Cricket']
+ SPORTS = ['Football', 'Basketball', 'Volleyball', 'Tennis', 'Padel', 'Jogging', 'Yoga', 'Rugby', 'Hockey', 'Baseball', 'Water polo', 'Cricket']
 
   belongs_to :user
   belongs_to :sport

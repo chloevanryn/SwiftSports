@@ -19,7 +19,11 @@
     <% @users.each do |user| %>
       <div class="card-category text-center">
         <%= link_to user_path(user) do %>
-          <%= cl_image_tag user.photo.key, class: 'rounded-circle pic', height: '200', width: '200' %>
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key, class: 'rounded-circle pic', height: '200', width: '200' %>
+          <% else %>
+            <%= image_tag "default_avatar.png", class: 'rounded-circle pic', height: '200', width: '200' %>
+          <% end%>
         <% end %>
         <div class="card-body">
           <h4 class="card-title" style="color: #03045E"><%= link_to user.username, user_path(user) %></h4>
