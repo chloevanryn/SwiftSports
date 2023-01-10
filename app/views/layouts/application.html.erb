@@ -16,13 +16,25 @@
 
   <body>
     <style>
-      body {
-          min-height: 100vh;
-        }
+    html, body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1 0 auto;
+    }
+    .footer {
+      flex-shrink: 0;
+    }
     </style>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
     <%= render "shared/footer"%>
   </body>
 </html>
