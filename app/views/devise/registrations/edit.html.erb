@@ -17,9 +17,9 @@
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <% f.input :current_password,
+    <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
-                required: false,
+                required: true,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.label :photo %>
     <%= f.file_field :photo %>

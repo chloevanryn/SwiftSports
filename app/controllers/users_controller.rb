@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    flash[:notice] = "Profile successfully updated"
     redirect_to @user
   end
 
