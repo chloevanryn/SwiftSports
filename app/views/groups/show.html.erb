@@ -35,6 +35,9 @@
 
 <div class="text-center" style="padding: 20px">
   <div class="d-grid gap-4 col-3 mx-auto">
+          <% if @group.user == current_user %>
+            <%= link_to "Update Group", edit_group_path(@group), class: "btn btn-secondary" %>
+          <% end %>
     <% if current_user %>
       <% if current_user.user_groups.find_by(group_id: @group.id) %>
         <%= link_to "Leave Group",
