@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'open-uri'
-
+ParticipatingUser.destroy_all
 User.destroy_all
 
 puts "Creating Users..."
@@ -117,6 +117,8 @@ Level.create([{
   name: 'Competitive'
 }])
 puts "#{Level.count} Levels were created!"
+
+Chatroom.destroy_all
 
 Event.destroy_all
 puts "Creating Events..."

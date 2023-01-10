@@ -3,7 +3,11 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @events = Event.all
+    if params[:query].present?
+      @events = Event.multisearch(params[:query])
+    else
+      @events = Event.all
+    end
     @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,

@@ -1,9 +1,13 @@
 class Event < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:title, :location]
+
+
   after_create :add_owner_as_participant
   after_create :create_chatroom
 
   has_many :participating_users
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
 
   belongs_to :user
   belongs_to :sport

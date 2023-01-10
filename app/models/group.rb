@@ -1,5 +1,7 @@
 class Group < ApplicationRecord
   # after_create :create_chatroom
+  include PgSearch::Model
+  multisearchable against: [:title]
 
   belongs_to :user
 
