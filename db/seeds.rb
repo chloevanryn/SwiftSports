@@ -40,51 +40,51 @@ Sport.destroy_all
 puts "Creating Sports..."
 
 sport1 = Sport.new(name: 'Football')
-sport1.photo.attach(filename: "sports/football.png", content_type: "image/png")
+sport1.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/football.png')) , filename: "football.png")
 sport1.save
 
 sport2 = Sport.new(name: 'Basketball')
-sport2.photo.attach(filename: "sports/basketball.png", content_type: "image/png")
+sport2.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/basketball.png')) , filename: "basketball.png")
 sport2.save
 
 sport3 = Sport.new(name: 'Volleyball')
-sport3.photo.attach(filename: "sports/volleyball", content_type: "image/png")
+sport3.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/volleyball.png')) , filename: "volleyball.png")
 sport3.save
 
 sport4 = Sport.new(name: 'Tennis')
-sport4.photo.attach(filename: "sports/tennis.png", content_type: "image/png")
+sport4.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/tennis.png')) , filename: "tennis.png")
 sport4.save
 
 sport5 = Sport.new(name: 'Padel')
-sport5.photo.attach(filename: "sports/padel.png", content_type: "image/png")
+sport5.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/padel.png')) , filename: "padel.png")
 sport5.save
 
 sport6 = Sport.new(name: 'Jogging')
-sport6.photo.attach(filename: "sports/jogging.png", content_type: "image/png")
+sport6.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/jogging.png')) , filename: "jogging.png")
 sport6.save
 
 sport7 = Sport.new(name: 'Yoga')
-sport7.photo.attach(filename: "sports/yoga.png", content_type: "image/png")
+sport7.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/yoga.png')) , filename: "yoga.png")
 sport7.save
 
 sport8 = Sport.new(name: 'Rugby')
-sport8.photo.attach(filename: "sports/rugby.png", content_type: "image/png")
+sport8.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/rugby.png')) , filename: "rugby.png")
 sport8.save
 
 sport9 = Sport.new(name: 'Hockey')
-sport9.photo.attach(filename: "sports/hockey.png", content_type: "image/png")
+sport9.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/hockey.png')) , filename: "hockey.png")
 sport9.save
 
 sport10 = Sport.new(name: 'Baseball')
-sport10.photo.attach(filename: "sports/baseball.png", content_type: "image/png")
+sport10.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/baseball.png')) , filename: "baseball.png")
 sport10.save
 
 sport11 = Sport.new(name: 'Water Polo')
-sport11.photo.attach(filename: "sports/waterpolo.png", content_type: "image/png")
+sport11.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/waterpolo.png')) , filename: "waterpolo.png")
 sport11.save
 
 sport12 = Sport.new(name: 'Cricket')
-sport12.photo.attach(filename: "sports/cricket.png", content_type: "image/png")
+sport12.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/cricket.png')) , filename: "cricket.png")
 sport12.save
 
 puts "#{Sport.count} Sports were created!"
