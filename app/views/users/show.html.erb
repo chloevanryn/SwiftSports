@@ -806,7 +806,9 @@ p {
                         <%= @user.username %>
                       </h3>
                       <div class="d-flex justify-content-center">
+                      <% if @user != current_user %>
                         <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+                      <% end %>
                       </div>
                   </div>
                 </div>
@@ -820,7 +822,9 @@ p {
                 <% if @user == current_user %>
                   <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-secondary" %>
                 <% end %>
-                <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-default", input_html: {role: "button"}%>
+                <% if @user != current_user %>
+                  <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-default", input_html: {role: "button"}%>
+                <% end %>
                   <div class="container">
                     <div class="row" style="justify-content: center">
                       <div class="col-12 col-md-6">
