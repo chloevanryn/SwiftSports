@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 
-<style>
- body {
-    font-family: 'Karla', sans-serif;
-    background-color: #E3E2DE;
-  }
-</style>
-
 <html>
   <head>
     <title>SwiftSports</title>
@@ -17,12 +10,19 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
+  <body>
+    <style>
+      body {
+          min-height: 100vh;
+        }
+    </style>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <%= yield %>
+    <%= render "shared/footer"%>
   </body>
 </html>

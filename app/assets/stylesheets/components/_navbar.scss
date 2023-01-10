@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #A0C3D2;
+  background-color: $my_blue;;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,4 +16,9 @@
   width: 50px;
   border-radius: 50%;
   background: cover / center;
+}
+
+.navbar-nav > li{
+  padding-left:20px;
+  padding-right:20px;
 }
