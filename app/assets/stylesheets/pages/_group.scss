@@ -8,13 +8,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 36px;
+  font-size: large;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   min-height: 300px;
   margin: 300px auto;
   margin-top: 150px;
+  padding: 10%;
 }
 .back {
   position: absolute;
@@ -42,5 +43,9 @@ h1, h2, h3, h4 {
   color: aliceblue;
   margin-top: 40px;
   margin-bottom: 0;
-  font-weight: bold;
+  // font-weight: bold;
 }
+// .square {
+//   border: 2px;
+//   border-color: #03045E;
+// }

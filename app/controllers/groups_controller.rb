@@ -34,6 +34,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @user_groups = UserGroup.where(group_id: @group.id)
+    @joined = @user_groups.where(user: current_user).any?
     @users = @user_groups.map { |ug| User.find(ug.user_id) }
     @post = Post.new
   end
