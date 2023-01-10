@@ -815,7 +815,7 @@ p {
               </div>
               <div>
                   <% @user.user_sports.each do |sport| %>
-                  <%= cl_image_tag sport.sport.photo.key, class: 'rounded-circle pic', height: '50', width: '50' %>
+                  <%= image_tag sport.sport.photo, class: 'rounded-circle pic', height: '50', width: '50' %>
                   <% end %>
                   </div>
                 <hr class="my-4">
