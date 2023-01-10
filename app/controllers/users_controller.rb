@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    redirect_to @user
+  end
+
   def show
     @user = User.find(params[:id])
   end

@@ -1,14 +1,20 @@
 <div class="container mt-5">
   <h1>Search Results</h1>
-  <% @results.each do |result| %>
-    <div class="card mb-3">
-      <% if result.class == User %>
-        <%= link_to result.username, user_path(result) %>
-      <% elsif result.class == Group %>
-        <%= link_to result.title, group_path(result) %>
-      <% elsif result.class == Event %>
-        <%= link_to result.title, event_path(result) %>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="row">
+    <% @results.each do |result| %>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <div class="card-body">
+            <% if result.class == User %>
+              <h5 class="card-title"><%= link_to result.username, user_path(result) %></h5>
+            <% elsif result.class == Group %>
+              <h5 class="card-title"><%= link_to result.title, group_path(result) %></h5>
+            <% elsif result.class == Event %>
+              <h5 class="card-title"><%= link_to result.title, event_path(result) %></h5>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
