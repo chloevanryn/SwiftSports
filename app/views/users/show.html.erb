@@ -817,6 +817,9 @@ p {
                   <% end %>
                   </div>
                 <hr class="my-4">
+                <% if @user == current_user %>
+                  <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-secondary" %>
+                <% end %>
                 <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-default", input_html: {role: "button"}%>
                   <div class="container">
                     <div class="row" style="justify-content: center">
