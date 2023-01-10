@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [:edit]
 
   def index
-    @users = User.all
+    if params[:query].present?
+      @users = User.multisearch(params[:query])
+    else
+      @users = User.all
+    end
   end
 
   def show

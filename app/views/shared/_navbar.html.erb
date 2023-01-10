@@ -8,6 +8,31 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href= "/" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/events">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/groups">Groups</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users">Athletes</a>
+          </li>
+        </ul>
+      </div>
+      <%= form_with url: search_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Looking for something?"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+
       <ul class="navbar-nav" style="position: absolute; left: 120px">
         <li class="nav-item active" style=>
           <a class="nav-link text-white" href= "/" >Home</a>

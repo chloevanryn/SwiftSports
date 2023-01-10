@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   get '/my_events', to: 'events#my_events'
+  get '/search', to: 'pages#search', as: :search
   resources :groups, only: [:new, :create, :show, :index] do
     resources :user_groups, only: [:create]
     resources :posts, only: [:new, :create]

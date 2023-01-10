@@ -5,4 +5,12 @@ class PagesController < ApplicationController
     @user = current_user
     @groups = Group.all
   end
+
+  def search
+    # PgSearch::Multisearch.rebuild(User)
+    # PgSearch::Multisearch.rebuild(Event)
+    # PgSearch::Multisearch.rebuild(Group)
+    @results = PgSearch.multisearch(params[:query])
+    @results = @results.map { |result| result.searchable }
+  end
 end
