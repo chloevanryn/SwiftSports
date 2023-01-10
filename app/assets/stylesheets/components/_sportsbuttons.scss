@@ -1,12 +1,47 @@
+.container {
+  margin-bottom: 10px;
+}
+
+.container h1 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.sportbutton {
+  color: white;
+  margin-top: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: #3B6B94;
+  border: #3B6B94;
+  padding: 15px;
+}
+
+.sportbutton:hover {
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: #74ABDE;
+  border: #74ABDE;
+  padding: 15px;
+ }
 
 .sport-wrapper {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  border-radius: 5%;
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .sport-item {
-  flex: 0 0 30%;
+  margin: 0 auto;
+  padding: 5px;
 }
 
 .sport-selector {
@@ -20,201 +55,191 @@
   box-sizing: border-box;
   width: 130px;
   height: 130px;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
   text-align: center;
+  color: #30d333;
+  text-shadow: -1px 0 #3a3a3a, 0 1px #3a3a3a, 1px 0 #3a3a3a, 0 -1px #3a3a3a;
   line-height: 110px;
-  padding: 10px 10px 30px 10px;
-  margin: 5px;
-  border: 1px solid #EAEAEA;
+  padding: 10px;
+  margin: 5px auto;
   border-radius: 50%;
-  background-color: white;
 }
 
 .sport-selector:checked + label {
-  border-color: #3B6B94 !important;
-  border-width: thick medium;
+  border-color: #2ede31 !important;
+  background-color: #FFFFFF !important;
+  border-width: thick;
+  border-style: solid;
+  font-size: 0.0001em;
 }
 
 #user_sport_sport_football + label {
-  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1927px-Football_%28soccer_ball%29.svg.png'), #FFFFFF;
-  background-size: 73% !important;
+  background: url('sports/football.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_football:checked + label {
-  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1927px-Football_%28soccer_ball%29.svg.png');
-  background-size: 73% !important;
+  background: url('sports/football.png');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 
 #user_sport_sport_basketball + label {
-  background: url('https://img.freepik.com/vektoren-kostenlos/basketballball-isoliert_1284-42545.jpg?w=2000'), #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/basketball.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_basketball:checked + label {
-  background: url('https://img.freepik.com/vektoren-kostenlos/basketballball-isoliert_1284-42545.jpg?w=2000') #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/basketball.png'), ;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 
 #user_sport_sport_volleyball + label {
-  background: url('https://static.vecteezy.com/system/resources/previews/005/461/266/original/volleyball-ball-for-playing-volleyball-illustration-isolated-on-white-background-free-vector.jpg'), #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/volleyball'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_volleyball:checked + label {
-  background: url('https://static.vecteezy.com/system/resources/previews/005/461/266/original/volleyball-ball-for-playing-volleyball-illustration-isolated-on-white-background-free-vector.jpg') #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/volleyball');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_tennis + label {
-  background: url('https://p.turbosquid.com/ts-thumb/Ly/5aqben/iAL7ezgn/01/jpg/1585783790/600x600/fit_q87/542e9d8a1508d33321bdd3840d4259feee55599f/01.jpg'), #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/tennis.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_tennis:checked + label {
-  background: url('https://p.turbosquid.com/ts-thumb/Ly/5aqben/iAL7ezgn/01/jpg/1585783790/600x600/fit_q87/542e9d8a1508d33321bdd3840d4259feee55599f/01.jpg') #FFFFFF;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-}
-
-#user_sport_sport_tennis + label {
-  background: url('https://p.turbosquid.com/ts-thumb/Ly/5aqben/iAL7ezgn/01/jpg/1585783790/600x600/fit_q87/542e9d8a1508d33321bdd3840d4259feee55599f/01.jpg'), #FFFFFF;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-}
-
-#user_sport_sport_tennis:checked + label {
-  background: url('https://p.turbosquid.com/ts-thumb/Ly/5aqben/iAL7ezgn/01/jpg/1585783790/600x600/fit_q87/542e9d8a1508d33321bdd3840d4259feee55599f/01.jpg') #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/tennis.png');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_padel + label {
-  background: url('https://www.tennis-point.de/dw/image/v2/BBDP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8d0bbf7d/images/148/256/0003600000__11.jpg?q=80&sw=2000'), #FFFFFF;
-  background-size: 90% !important;
+  background: url('sports/padel.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_padel:checked + label {
-  background: url('https://www.tennis-point.de/dw/image/v2/BBDP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8d0bbf7d/images/148/256/0003600000__11.jpg?q=80&sw=2000') #FFFFFF;
-  background-size: 90% !important;
+  background: url('sports/padel.png');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_jogging + label {
-  background: url('https://images.pexels.com/photos/3601094/pexels-photo-3601094.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'), #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/jogging.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_jogging:checked + label {
-  background: url('https://images.pexels.com/photos/3601094/pexels-photo-3601094.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/jogging.png');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_yoga + label {
-  background: url('https://images.news18.com/ibnlive/uploads/2022/03/yoga-3-16484555003x2.jpg?impolicy=website&width=510&height=356'), #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/yoga.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_yoga:checked + label {
-  background: url('https://images.news18.com/ibnlive/uploads/2022/03/yoga-3-16484555003x2.jpg?impolicy=website&width=510&height=356') #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/yoga.png');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_rugby + label {
-  background: url('https://p.turbosquid.com/ts-thumb/ja/LOay8R/MohiG1el/1/png/1573384316/600x600/fit_q87/fa0adb7ff40bdfa8e91e7fa4938d2af1631c2062/1.jpg'), #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/rugby.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_rugby:checked + label {
-  background: url('https://p.turbosquid.com/ts-thumb/ja/LOay8R/MohiG1el/1/png/1573384316/600x600/fit_q87/fa0adb7ff40bdfa8e91e7fa4938d2af1631c2062/1.jpg') #FFFFFF;
-  background-size: cover !important;
+  background: url('sports/rugby.png');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_hockey + label {
-  background: url('https://i.ebayimg.com/images/g/-KUAAOSwQbNigyhW/s-l500.jpg'), #FFFFFF;
+  background: url('sports/hockey.png'), #FFFFFF;
   background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_hockey:checked + label {
-  background: url('https://i.ebayimg.com/images/g/-KUAAOSwQbNigyhW/s-l500.jpg') #FFFFFF;
+  background: url('sports/hockey.png');
   background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_baseball + label {
-  background: url('https://upload.wikimedia.org/wikipedia/en/1/1e/Baseball_%28crop%29.jpg'), #FFFFFF;
+  background: url('sports/baseball.png'), #FFFFFF;
   background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_baseball:checked + label {
-  background: url('https://upload.wikimedia.org/wikipedia/en/1/1e/Baseball_%28crop%29.jpg') #FFFFFF;
+  background: url('sports/baseball.png');
   background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_water_polo + label {
-  background: url('https://m.media-amazon.com/images/I/51cXhQC-uaL._AC_.jpg'), #FFFFFF;
-  background-size: 75% !important;
+  background: url('sports/waterpolo.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_water_polo:checked + label {
-  background: url('https://m.media-amazon.com/images/I/51cXhQC-uaL._AC_.jpg') #FFFFFF;
-  background-size: 75% !important;
+  background: url('sports/waterpolo.png');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_cricket + label {
-  background: url('https://media.istockphoto.com/id/181668903/de/vektor/rot-gl%C3%A4nzend-traditionelle-cricket-ball.jpg?s=612x612&w=0&k=20&c=GMkbN8GGimFUhpUUN02YC02i_a22XnV_bchk6wKRirg='), #FFFFFF;
-  background-size: 85% !important;
+  background: url('sports/cricket.png'), #FFFFFF;
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
 #user_sport_sport_cricket:checked + label {
-  background: url('https://media.istockphoto.com/id/181668903/de/vektor/rot-gl%C3%A4nzend-traditionelle-cricket-ball.jpg?s=612x612&w=0&k=20&c=GMkbN8GGimFUhpUUN02YC02i_a22XnV_bchk6wKRirg=') #FFFFFF;
-  background-size: 85% !important;
+  background: url('sports/cricket.png');
+  background-size: 80% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }

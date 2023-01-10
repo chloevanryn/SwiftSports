@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'open-uri'
+Post.destroy_all
+UserGroup.destroy_all
 ParticipatingUser.destroy_all
 User.destroy_all
 
@@ -39,65 +41,52 @@ Sport.destroy_all
 
 puts "Creating Sports..."
 
-file_sport1 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1927px-Football_%28soccer_ball%29.svg.png")
-file_sport2 = URI.open("https://img.freepik.com/vektoren-kostenlos/basketballball-isoliert_1284-42545.jpg?w=2000")
-file_sport3 = URI.open("https://static.vecteezy.com/system/resources/previews/005/461/266/original/volleyball-ball-for-playing-volleyball-illustration-isolated-on-white-background-free-vector.jpg")
-file_sport4 = URI.open("https://p.turbosquid.com/ts-thumb/Ly/5aqben/iAL7ezgn/01/jpg/1585783790/600x600/fit_q87/542e9d8a1508d33321bdd3840d4259feee55599f/01.jpg")
-file_sport5 = URI.open("https://www.tennis-point.de/dw/image/v2/BBDP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8d0bbf7d/images/148/256/0003600000__11.jpg?q=80&sw=2000")
-file_sport6 = URI.open("https://images.pexels.com/photos/3601094/pexels-photo-3601094.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
-file_sport7 = URI.open("https://images.news18.com/ibnlive/uploads/2022/03/yoga-3-16484555003x2.jpg?impolicy=website&width=510&height=356")
-file_sport8 = URI.open("https://p.turbosquid.com/ts-thumb/ja/LOay8R/MohiG1el/1/png/1573384316/600x600/fit_q87/fa0adb7ff40bdfa8e91e7fa4938d2af1631c2062/1.jpg")
-file_sport9 = URI.open("https://i.ebayimg.com/images/g/-KUAAOSwQbNigyhW/s-l500.jpg")
-file_sport10 = URI.open("https://upload.wikimedia.org/wikipedia/en/1/1e/Baseball_%28crop%29.jpg")
-file_sport11 = URI.open("https://m.media-amazon.com/images/I/51cXhQC-uaL._AC_.jpg")
-file_sport12 = URI.open("https://media.istockphoto.com/id/181668903/de/vektor/rot-gl%C3%A4nzend-traditionelle-cricket-ball.jpg?s=612x612&w=0&k=20&c=GMkbN8GGimFUhpUUN02YC02i_a22XnV_bchk6wKRirg=")
-
 sport1 = Sport.new(name: 'Football')
-sport1.photo.attach(io: file_sport1, filename: "user1.png", content_type: "image/png")
+sport1.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/football.png')) , filename: "football.png")
 sport1.save
 
 sport2 = Sport.new(name: 'Basketball')
-sport2.photo.attach(io: file_sport2, filename: "user2.png", content_type: "image/png")
+sport2.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/basketball.png')) , filename: "basketball.png")
 sport2.save
 
 sport3 = Sport.new(name: 'Volleyball')
-sport3.photo.attach(io: file_sport3, filename: "user3.png", content_type: "image/png")
+sport3.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/volleyball.png')) , filename: "volleyball.png")
 sport3.save
 
 sport4 = Sport.new(name: 'Tennis')
-sport4.photo.attach(io: file_sport4, filename: "user4.png", content_type: "image/png")
+sport4.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/tennis.png')) , filename: "tennis.png")
 sport4.save
 
 sport5 = Sport.new(name: 'Padel')
-sport5.photo.attach(io: file_sport5, filename: "user5.png", content_type: "image/png")
+sport5.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/padel.png')) , filename: "padel.png")
 sport5.save
 
 sport6 = Sport.new(name: 'Jogging')
-sport6.photo.attach(io: file_sport6, filename: "user6.png", content_type: "image/png")
+sport6.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/jogging.png')) , filename: "jogging.png")
 sport6.save
 
 sport7 = Sport.new(name: 'Yoga')
-sport7.photo.attach(io: file_sport7, filename: "user7.png", content_type: "image/png")
+sport7.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/yoga.png')) , filename: "yoga.png")
 sport7.save
 
 sport8 = Sport.new(name: 'Rugby')
-sport8.photo.attach(io: file_sport8, filename: "user8.png", content_type: "image/png")
+sport8.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/rugby.png')) , filename: "rugby.png")
 sport8.save
 
 sport9 = Sport.new(name: 'Hockey')
-sport9.photo.attach(io: file_sport9, filename: "user9.png", content_type: "image/png")
+sport9.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/hockey.png')) , filename: "hockey.png")
 sport9.save
 
 sport10 = Sport.new(name: 'Baseball')
-sport10.photo.attach(io: file_sport10, filename: "user10.png", content_type: "image/png")
+sport10.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/baseball.png')) , filename: "baseball.png")
 sport10.save
 
-sport11 = Sport.new(name: 'Water polo')
-sport11.photo.attach(io: file_sport11, filename: "user11.png", content_type: "image/png")
+sport11 = Sport.new(name: 'Water Polo')
+sport11.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/waterpolo.png')) , filename: "waterpolo.png")
 sport11.save
 
 sport12 = Sport.new(name: 'Cricket')
-sport12.photo.attach(io: file_sport12, filename: "user12.png", content_type: "image/png")
+sport12.photo.attach(io: File.open(Rails.root.join('app/assets/images/sports/cricket.png')) , filename: "cricket.png")
 sport12.save
 
 puts "#{Sport.count} Sports were created!"
