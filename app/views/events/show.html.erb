@@ -2,7 +2,7 @@
 <% content_for :meta_description, @event.description %>
 <%# content_for :meta_image, image_path(@event.photo.key) if @event.photo.attached? %>
 
-<div class="container-fluid" style="height: 100vh; background-size: 100%; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/?<% Event.sport.name.downcase %>')">
+<div class="container-fluid" style="height: 100vh; background-size: 100%; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/?orientation=landscape&<%= Event.first.sport.name.downcase %>')">
   <div class="row justify-content-center">
     <div class="col-4">
       <div class="container mt-5">
