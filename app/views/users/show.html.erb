@@ -1,11 +1,50 @@
 <style>
-  .pic {
+  .profile-pic {
     object-fit: cover;
     height: 150px;
     width: 150px;
     margin-top: 20px;
   }
 
+
+  a {
+    text-decoration: none;
+    color: #03045E;
+    text-align: center;
+  }
+
+  h1 {
+    color: #03045E;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+
+  h3 {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #2ede31;
+  }
+
+  .profile-card {
+    background: white;
+    border-radius: 5%;
+    height: 270px;
+    width: 400px;
+    margin-top: 40px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
   .sportcircle {
     background-color: white;
     padding: 6px;
@@ -14,44 +53,54 @@
     border-radius: 50%;
   }
 
-  .card {
-  margin: 0 auto;
-  margin-top: 80px;
-  margin-bottom: 100px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 500px;
-  height: 400px;
-  border-radius: 5%;
-  align-items: center;
-  justify-content: center;
+.sport-photo {
+	transition: all 0.2s;
 }
 
+.sport-photo:hover {
+	transform: translateY(-3px);
+}
+
+.btn-primary {
+  background-color: #3B6B94;
+  border-color: #3B6B94;
+  margin-right: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #74ABDE;
+  border-color: #74ABDE;
+  margin-right: 10px;
+}
 </style>
 
-<div class="container">
-  <div class="card">
-    <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, class: 'rounded-circle pic' %>
-    <% else %>
-    <%= image_tag "default_avatar.png", class: 'rounded-circle pic' %>
-    <% end %>
-      <div>
+
+<div class="flex-container">
+      <div class="profile-card">
+        <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: 'rounded-circle profile-pic' %>
+        <% else %>
+        <%= image_tag "default_avatar.png", class: 'rounded-circle profile-pic' %>
+        <% end %>
+      <div class="profile-card-body">
         <h3><%= @user.username %></h3>
       </div>
-        <div>
-          <% if @user == current_user %>
-          <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-secondary" %>
-          <% end %>
-        </div>
-      <div class="row">
-        <% @user.user_sports.each do |sport| %>
-    <%= image_tag sport.sport.photo, class: 'sportcircle' %>
-    <% end %>
-  </div>
+    </div>
 </div>
 
+
+    <% if @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary"%>
+    <% end %>
+
+    <% @user.user_sports.each do |sport| %>
+    <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo mt-2' %>
+    <% end %>
+    </div>
+
+
   <% if @user != current_user %>
-  <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-default", input_html: {role: "button"}%>
+  <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-primary", input_html: {role: "button"}%>
   <% end %>
 
   <% @user.ratings.each do |f| %>
