@@ -9,24 +9,37 @@
 }
 </style>
 
-<div class="container" style="padding: 50px">
-  <h1 class="text-center"> Create a new event:</h1>
-  <%= simple_form_for @event, data: { controller: 'flatpickr' } do |f| %>
-  <div class="card-trip">
-    <h3><%= f.input :title %></h3>
-    <%= f.association :sport %>
-    <%= f.association :level %>
-    <%= f.input :description %>
-    <%= f.input :location,
-      input_html: {data: {address_autocomplete_target: "address"}},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-    <%= f.input :date %>
-    <%= f.input :time %>
 
-  <div class="form-actions d-flex justify-content-center">
-    <%= f.button :submit, "Update", class: "btn btn-primary"%>
-    <%= link_to "Back", event_path(@event), class: "btn btn-outline-secondary", input_html: {role: "button"}%>
-  <% end %>
-  </div>
+<div class="container h-100">
+  <div class="form-inputs">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px; margin-top: 30px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <%= simple_form_for @event, data: { controller: 'flatpickr' } do |f| %>
+                  <%= f.input :title %>
+                  <%= f.association :sport %>
+                  <%= f.association :level %>
+                  <%= f.input :description %>
+                  <%= f.input :location,
+                    input_html: {data: {address_autocomplete_target: "address"}},
+                    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+                  <%= f.input :date %>
+                  <%= f.input :time %>
+                  <%= f.input :photo, as: :file, required: false, input_html: { style: "border-color: lightgrey;"} %>
+
+                  <div class="form-actions d-flex justify-content-between py-2">
+                  <%= f.button :submit, "Create", class: "btn btn-primary"%>
+                  <%= link_to "Back to all events", events_path, class: "btn btn-outline-secondary", input_html: {role: "button"}%>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

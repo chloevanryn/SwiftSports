@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@group.title} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @group.description %>
-<% content_for :meta_image, image_path(@group.photo.key) if @group.photo.attached? %>
+<% content_for :meta_image, cl_image_path(@group.photo.key) if @group.photo.attached? %>
 <%# main div, needs to be flexbox %>
 <% if @group.photo.attached? %>
   <div class="container-fluid" style="height: 100vh; background-size: 100%; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @group.photo.key, class: 'img-fluid rounded mx-auto', height: '350', width: '350' %>)">
