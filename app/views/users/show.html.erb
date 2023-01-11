@@ -76,7 +76,7 @@
 
 
 <div class="flex-container">
-      <div class="profile-card">
+      <div class="card">
         <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, class: 'rounded-circle profile-pic' %>
         <% else %>
@@ -87,8 +87,10 @@
       </div>
     </div>
 </div>
+<%# top code is old, new code is below %>
 
 
+  <div class="text-center">
     <% if @user == current_user %>
     <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary"%>
     <% end %>
