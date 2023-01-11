@@ -10,13 +10,13 @@
     <div class="row justify-content-center">
       <h3 class="heading text-center"><%= @group.title %></h3>
     <div class="d-flex justify-content-center align-items-center text-center">
-    <div class="d-flex">
+      <div class="d-flex">
         <% if @group.user == current_user %>
           <%= link_to "Update Group", edit_group_path(@group), class: "btn btn-secondary btn-md mx-2" %>
         <% end %>
       <%= link_to "Back to all groups", groups_path, class: "btn btn-primary btn-md mx-2"%>
+      </div>
     </div>
-  </div>
     <div class="col-3 mb-3">
       <div class="card-category" style="background-color: #EDEDED">
         <div class="card-body">
