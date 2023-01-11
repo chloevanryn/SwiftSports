@@ -1,15 +1,18 @@
 <div class="container">
-  <h1>Leave a rating for <%= @user.username %></h1>
+  <h1 style="color: #03045E">Leave a rating for <%= @user.username %> <i class="fas fa-solid fa-star"></i></h1>
   <div class="container">
+  <div class="card" style=" border-radius: 2%;">
     <%= simple_form_for [@user, @rating] do |f| %>
       <div class="card-trip">
-        <p><%= f.input :comment %></p>
+        <%= f.input :comment,
+                label: false %>
           <div class="d-grid gap-2 col-6 mx-auto">
-            <%= f.button :submit, class: "btn btn-secondary" %>
-            <%= link_to "Back to the user", user_path(@user), class: "btn btn-secondary", input_html: {role: "button"}%>
+            <%= f.button :submit, "Submit your rating", class: "btn btn-primary" %>
+            <%= link_to "Back to the user", user_path(@user), class: "btn btn-primary", input_html: {role: "button"}%>
             <%#= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-secondary", input_html: {role: "button"}%>
           </div>
       </div>
     <% end %>
+  </div>
   </div>
 </div>
