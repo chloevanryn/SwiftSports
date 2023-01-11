@@ -1,29 +1,72 @@
 <style>
-  .container {
-    background-color: none;
-  }
-
   .pic {
     object-fit: cover;
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
   }
+
+
+  a {
+    text-decoration: none;
+    color: #03045E;
+    text-align: center;
+  }
+
+  h1 {
+    color: #03045E;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+
+  h3 {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #2ede31;
+  }
+
+  .card {
+    background: white;
+    border-radius: 5%;
+    height: 270px;
+    width: 250px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
 </style>
 
-<div class="container mt-5">
-  <h1 class="mb-5 text-center" style="color: #03045E">Athletes Near You!</h1>
-  <div class="cards">
-    <% @users.each do |user| %>
-      <div class="card-category text-center">
-        <%= link_to user_path(user) do %>
-          <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key, class: 'rounded-circle pic', height: '200', width: '200' %>
-          <% else %>
-            <%= image_tag "default_avatar.png", class: 'rounded-circle pic', height: '200', width: '200' %>
-          <% end%>
-        <% end %>
-        <div class="card-body">
-          <h4 class="card-title" style="color: #03045E"><%= link_to user.username, user_path(user) %></h4>
+
+<h1>Athletes near you</h1>
+
+
+<div class="row row-cols-1 row-cols-md-4">
+  <% @users.each do |user| %>
+    <div class="col-md-3">
+      <div class="flex-container">
+        <div class="card">
+          <%= link_to user_path(user) do %>
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class: 'rounded-circle pic' %>
+            <% else %>
+              <%= image_tag "default_avatar.png", class: 'rounded-circle pic' %>
+            <% end%>
+          <% end %>
+          <div class="card-body">
+            <h3><%= link_to user.username, user_path(user) %></h3>
+          </div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
