@@ -1,9 +1,37 @@
-<%= simple_form_for [@group] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file, required: false %>
-  <div class="d-grid gap-2 col-6 mx-auto">
-  <%= f.button :submit, class: "btn btn-primary" %>
-  <%= link_to "Back to all groups", groups_path, class: "btn btn-outline-secondary", input_html: {role: "button"}%>
-  </div>
-<% end %>
+<style>
+.btn-primary{
+  background-color: #3B6B94;
+  border-color: transparent;
+}
+.btn-primary:hover{
+  background-color: #74ABDE;
+  border-color: transparent;
+}
+</style>
+<div class="container h-100">
+      <div class="form-inputs">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-lg-12 col-xl-11">
+            <div class="card text-black" style="border-radius: 25px; margin-top: 30px;">
+              <div class="card-body p-md-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                    <%= simple_form_for [@group] do |f| %>
+                      <%= f.input :title, input_html: { style: "border-color: transparent;"} %>
+                      <%= f.input :description, input_html: { style: "border-color: transparent;"} %>
+                      <%= f.input :photo, as: :file, required: false, input_html: { style: "border-color: transparent;"} %>
+                    <div class="d-grid gap-2 row mx-auto justify-content-center">
+                        <div class="form-buttons d-flex justify-content-between" style="width:100%">
+                        <%= f.button :submit, "Update", class: "btn btn-primary", input_html: {role: "button"}%>
+                       <% end %>
+                          <%= link_to "Cancel", group_path(@group), class: "btn btn-warning", input_html: {role: "button"}%><br>
+                      </div>
+                    </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+</div>
