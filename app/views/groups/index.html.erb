@@ -4,30 +4,59 @@
     width: 300px;
     display: grid;
     grid-template-rows: 2fr 1fr;
+    border-radius: 4px;
   }
 
   .pic {
     background-position: center;
     background-size: cover;
+    border-radius: 4px;
   }
+
+  .header {
+    color: aliceblue;
+  }
+
+  .b-primary {
+    font-family: Karla, sans-serif;
+  }
+
+  .subheader {
+    color: #03045E;
+  }
+
 </style>
 
-<h1 class="text-center" style="padding: 50px"><b>Find a group to join or create your own one! &#127942</b></h1>
-
-<div class="container" style="padding: 20px">
-  <div class="text-center" style="padding: 50px">
-    <button type="button" class="btn btn-primary"><%= link_to "Create a new group", new_group_path, class: "a-primary"%></button>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="cards">
+<div class="container-fluid" style="background-size: cover; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/262524/pexels-photo-262524.jpeg);">
+    <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 class="header" style="padding: 50px"><b>Find a group to join or create your own!</b></h1>
+            <div class="card" id="main" style="width: 50%; margin: 0 auto;">
+                <div class="card-body">
+                    <p>Are you looking for a way to connect with people who share your passion for sports? Look no further! We offer a variety of groups that allow you to connect with like-minded individuals, regardless of the sport they play.</p>
+                    <p>By joining one of our groups, you'll have the opportunity to discuss strategies, share tips and tricks, and even organize virtual or in-person events with other members. Whether you're a beginner or an experienced player, there's a group for you.</p>
+                    <p>In addition to connecting with other sports enthusiasts, joining one of our groups can also help you to improve your skills and achieve your goals. With the support and encouragement of your group members, you'll be able to push yourself to new heights.</p>
+                    <p>So why wait? Sign up today and start connecting with people who share your love of sports. Who knows, you may even make some lifelong friends!</p>
+                    <p>Don't miss out on the opportunity to be part of a supportive and engaged community of sports enthusiasts.</p>
+                </div>
+            </div>
+            <div class="text-center" style="padding: 50px">
+                <button type="button" class="btn btn-success"><%= link_to "Create a new group", new_group_path, class: "a-primary"%></button>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="container" style="padding: 20px">
+    <div class="row justify-content-center">
+      <h3 class="subheader text-center" style="padding: 50px"><b>Browse available groups below!</b></h3>
+        <div class="cards" id="group-cards">
       <% @groups.each do |group| %>
         <%= link_to group_path(group), class: "b-primary" do %>
           <div class="card">
-            <div class="img-thumbnail pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo.key, crop: :fill %>')">
+            <div class="img-thumbnail pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo.key, crop: :fill %>');">
             </div>
             <div class="container justify-content-center text-center" style="margin: auto">
-              <h4 class="b-primary"><b><%= group.title.upcase %></b></h4>
+              <h4 class="b-primary"><b><%= group.title %></b></h4>
             </div>
           </div>
         <% end %>
