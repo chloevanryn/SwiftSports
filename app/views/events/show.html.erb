@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@event.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @event.description %>
+<%# content_for :meta_image, image_path(@event.photo.key) if @event.photo.attached? %>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
 
@@ -57,7 +61,7 @@
 
   </div>
  </div>
- 
+
  <div class="row mt-5">
     <div class="card text-center" style="width: 20%; margin: auto;">
       <div class="container" style="padding: 20px">
