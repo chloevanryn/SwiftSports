@@ -3,55 +3,59 @@
 <% content_for :meta_image, cl_image_path(@group.photo.key) if @group.photo.attached? %>
 <%# main div, needs to be flexbox %>
 <% if @group.photo.attached? %>
-  <div class="container-fluid" style="height: 100vh; background-size: 100%; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @group.photo.key, class: 'img-fluid rounded mx-auto', height: '350', width: '350' %>)">
+  <div class="container-fluid" style="height: 900px; background-size: 100%; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @group.photo.key, class: 'img-fluid rounded mx-auto', height: '350', width: '350' %>)">
 <% else %>
-  <div class="container-fluid" style="height: 100vh; background-size: 100%; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+  <div class="container-fluid" style="height: 900px; background-size: 100%; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
 <% end %>
-    <div class="row justify-content-center">
-      <h3 class="heading text-center"><%= @group.title %></h3>
-    <div class="d-flex justify-content-center align-items-center text-center">
-      <div class="d-flex">
-        <% if @group.user == current_user %>
-          <%= link_to "Update Group", edit_group_path(@group), class: "btn btn-secondary btn-md mx-2" %>
-        <% end %>
-      <%= link_to "Back to all groups", groups_path, class: "btn btn-primary btn-md mx-2"%>
-      </div>
+
+<div class="row justify-content-center">
+  <h3 class="heading text-center"><%= @group.title %></h3>
+  <div class="d-flex justify-content-center align-items-center text-center">
+    <div class="d-flex">
+      <% if @group.user == current_user %>
+        <%= link_to "Update Group", edit_group_path(@group), class: "btn btn-secondary btn-md mx-2" %>
+      <% end %>
+    <%= link_to "Back to all groups", groups_path, class: "btn btn-primary btn-md mx-2"%>
     </div>
-    <div class="col-3 mb-3">
-      <div class="card-category" style="background-color: #EDEDED">
-        <div class="card-body">
-            <h4 class="text-center">About this group:</h4>
-            <p class="card-text text-center">
-            <%= @group.description %>
-          </p>
-        </div>
-      </div>
   </div>
   <div class="col-3 mb-3">
     <div class="card-category" style="background-color: #EDEDED">
       <div class="card-body">
-        <h4 class="text-center"> <%= @group.title %> Members:</h4>
-          <% if @users.empty? %>
-            <h5 class="text-center">This group has no members</h5>
-            <h4 class="text-center">&#128550</h4>
-          <% else %>
-            <div class="row justify-content-center">
-              <% @users.each do |user| %>
-                <div class="col-md-4 my-2">
-                  <%= link_to user_path(user), class: "a-primary" do %>
-                    <div class="text-center">
-                      <%= cl_image_tag user.photo.key, class: 'rounded-circle pic', height: '100', width: '100' %>
-                      <h4 class="b-primary" style="margin: auto; padding: 5px"> <%= user.username %></h4>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
+          <h4 class="text-center"><b>About this group:</b></h4>
+          <p class="card-text text-center">
+          <%= @group.description %>
+        </p>
+      </div>
     </div>
-</div>
-
+  </div>
+  <div class="col-3 mb-3">
+    <div class="card-category" style="background-color: #EDEDED">
+      <div class="card-body">
+        <h4 class="text-center"><b>Members:</b></h4>
+        <% if @users.empty? %>
+          <h5 class="text-center">This group has no members</h5>
+          <h4 class="text-center">&#128550</h4>
+        <% else %>
+          <div class="row justify-content-center">
+            <% @users.each do |user| %>
+              <div class="col-md-4 my-2">
+                <%= link_to user_path(user), class: "a-primary" do %>
+                  <div class="text-center">
+                  <% if user.photo.attached?%>
+                    <%= cl_image_tag user.photo.key, class: 'rounded-circle pic', height: '100', width: '100' %>
+                  <%else%>
+                    <%= image_tag "default_avatar.png", class: 'rounded-circle pic', height: '100', width: '100' %>
+                  <%end%>
+                  <h4 class="b-primary" style="margin: auto; padding: 5px"> <%= user.username %></h4>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 
 <%# <%= link_to 'Join the group', group_user_groups_path(params[:id]), data: { turbo_method: :post }, class: "btn btn-primary btn-lg" %>
@@ -69,7 +73,7 @@
   <div class="row">
     <div class="col-12 text-center" style="padding: 20px">
 
-<% if @joined %>
+      <% if @joined %>
       <h1 class="text-center">Post something to the group! </h1>
       <%# <div class="d-grid gap-4 col-3 mx-auto">
         <%= link_to 'Share your news with us!', group_path(@group), class: "btn btn-primary btn-lg" %>
@@ -77,21 +81,21 @@
     </div>
   </div>
 </div>
-  <div class="row mt-5 square">
-    <div class="col-12">
-      <ul class="cards">
-        <% @group.posts.each do |post| %>
-          <li class="list-group-item text-center card" style="background-color: #EDEDED">
-            <%= cl_image_tag post.user.photo.key, class: 'rounded-circle pic', height: '150', width: '150' %>
-            <span class="text-secondary" style="muted; font-size: 20px"><strong><%= post.user.username %></strong></span>
-            <br>
-            <span class="text-secondary" style="muted"><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></span>
-            <br>
-            <span class="text-secondary" style="muted"></span>
-            <br>
-            <span class="text-secondary" style="muted"><%= post.content %></span>
-          </li>
-        <% end %>
+        <div class="row mt-5 square">
+          <div class="col-12">
+            <ul class="cards">
+              <% @group.posts.each do |post| %>
+                <li class="list-group-item text-center card" style="background-color: #EDEDED">
+                  <%= cl_image_tag post.user.photo.key, class: 'rounded-circle pic', height: '150', width: '150' %>
+                  <span class="text-secondary" style="muted; font-size: 20px"><strong><%= post.user.username %></strong></span>
+                  <br>
+                  <span class="text-secondary" style="muted"><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></span>
+                  <br>
+                  <span class="text-secondary" style="muted"></span>
+                  <br>
+                  <span class="text-secondary" style="muted"><%= post.content %></span>
+                </li>
+              <% end %>
       </ul>
       <div class="container mt-5">
         <div class="row">
@@ -108,7 +112,7 @@
 <% else %>
   <h1 class="text-center">Join this group to see their posts! </h1>
 <% end %>
-<div class="d-flex justify-content-center align-items-center text-center">
+<div class="container text-center" style="margin-bottom: 30px">
   <% if current_user %>
     <% if current_user.user_groups.find_by(group_id: @group.id) %>
       <%= link_to "Leave Group",
