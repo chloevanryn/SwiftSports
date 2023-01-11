@@ -83,23 +83,23 @@
   </div>
 
   <div class="row mt-5 d-none" data-toggle-target="list">
-    <div class="col-12">
-      <ul class="cards">
-        <% @events.each do |event| %>
-          <%= link_to event_path(event), class: "text-primary" do %>
-            <li class="list-group-item text-center card" style="background-color: lightgrey">
-              <span class="text-secondary" style="muted; font-size: 20px"><b><%= event.title %></b></span>
-              <br>
-              <span class="text-secondary" style="muted"></span>
-              <br>
-              <span class="text-secondary" style="muted"><b>Location:</b> <%= event.location %></span>
-              <br>
-              <span class="text-secondary" style="muted"><b>Date:</b> <%= event.date %></span>
-            </li>
+    <% @events.each do |event| %>
+      <div class="col-3 mb-4">
+        <div class="card">
+          <%= link_to event_path(event), class: "b-primary" do %>
+            <img src="https://i.postimg.cc/1X8R7m8y/design.png">
+            <div class="card__content">
+              <h2><b><%=event.title%></b></h2>
+              <p style="font-size: 16px">
+                <%=event.description%>
+              </p>
+              <a href="#" class="card__content"></a>
+              <h6 class="text-center"><b>Location: </b><%=event.location%></h6>
+            </div>
           <% end %>
-        <% end %>
-      </ul>
-    </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
