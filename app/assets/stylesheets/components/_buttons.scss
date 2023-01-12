@@ -1,0 +1,12 @@
+.inverted-3 {
+  background:
+    linear-gradient(-135deg, #3B6B94  50%, #fff 0) var(--_d, 100%)/250% no-repeat,
+    linear-gradient(-135deg, #3B6B94 50%, #5BC0F8 0) var(--_d, 100%)/250% no-repeat;
+  -webkit-background-clip: text, padding-box;
+          background-clip: text, padding-box;
+  transition: 0.8s
+}
+
+.inverted-3:hover {
+  --_d: 50%;
+}
