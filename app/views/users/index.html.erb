@@ -1,72 +1,107 @@
 <style>
-  .pic {
-    object-fit: cover;
-    height: 150px;
-    width: 150px;
-    margin-top: 20px;
-  }
+body {
+  background-color: #EDEDED;
+}
+
+.athlete-pic {
+  object-fit: cover;
+  height: 150px;
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  display: flex;
+  transition: all 0.2s;
+}
+
+.athlete-pic:hover {
+  transform: translateY(-3px);
+}
 
 
-  a {
-    text-decoration: none;
-    color: #03045E;
-    text-align: center;
-  }
+.a-athlete {
+  text-decoration: none;
+  color: #0D315B;
+  text-align: center;
+}
 
-  h1 {
-    color: #03045E;
-    align-items: center;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-weight: bold;
-  }
+.a-athlete:hover {
+  text-decoration: none;
+  color: #2ede31;
+}
 
-  h3 {
-    margin-top: 10px;
-    text-align: center;
-  }
+h1 {
+  color: #0D315B;
+  align-items: center;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom:60px;
+  font-weight: bold;
+}
 
-  a:hover {
-    text-decoration: none;
-    color: #2ede31;
-  }
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-  .card {
-    background: white;
-    border-radius: 5%;
-    height: 270px;
-    width: 250px;
+.athlete-card {
+  background-color: white;
+  border-radius: 1%;
+  height: 350px;
+  width: 250px;
+  padding: 5px;
 }
 
 .flex-container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
+
+.sportcircle {
+  height: 40px;
+  width: 40px;
+  margin: 3px;
+  border-radius: 50%;
+  display: inline-block;
+  }
+
+.sport-photo {
+	transition: all 0.2s;
+}
+
+.sport-photo:hover {
+	transform: translateY(-3px);
+}
+
 </style>
 
-
-<h1>Athletes near you</h1>
-
+<body>
+<h1 style="color: #0D315B;">Athletes near you</h1>
 
 <div class="row row-cols-1 row-cols-md-4">
   <% @users.each do |user| %>
     <div class="col-md-3">
       <div class="flex-container">
-        <div class="card">
+        <div class="athlete-card shadow mx-auto">
           <%= link_to user_path(user) do %>
             <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, class: 'rounded-circle pic' %>
+              <%= cl_image_tag user.photo.key, class: 'rounded-circle athlete-pic d-flex mx-auto' %>
             <% else %>
-              <%= image_tag "default_avatar.png", class: 'rounded-circle pic' %>
+              <%= image_tag "default_avatar.png", class: 'rounded-circle athlete-pic d-flex mx-auto' %>
             <% end%>
           <% end %>
-          <div class="card-body">
-            <h3><%= link_to user.username, user_path(user) %></h3>
+          <div class="card-body text-center">
+            <h3><%= link_to user.username, user_path(user), class: 'a-athlete' %></h3>
+            <% user.user_sports.each do |sport| %>
+            <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo' %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+</body>
