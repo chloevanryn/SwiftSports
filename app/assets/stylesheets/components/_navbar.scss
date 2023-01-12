@@ -34,3 +34,45 @@
   border-color: #74ABDE;
   color: white;
 }
+
+.butter {
+  font-family: 'Calligraffitti', cursive;
+  font-weight: 700;
+  font-size: 30px;
+  position: absolute;
+  text-shadow: -15px 5px 20px #ced0d3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 0px #0081C9,
+    2px 2px 0px #5BC0F8
+}
+
+.hidden {
+  opacity:0;
+}
+.console-container {
+
+  font-family:Khula;
+  font-size:4em;
+  text-align:center;
+  height:200px;
+  width:800px;
+  display:block;
+  position:absolute;
+  color:white;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+.console-underscore {
+   display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+}
