@@ -1,12 +1,39 @@
 <% content_for :meta_title, "#{@event.title} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @event.description %>
 <%# content_for :meta_image, image_path(@event.photo.key) if @event.photo.attached? %>
+<style>
+.btn-primary-1 {
+  border-radius: 4px;
+  width: 280px;
+  position: relative;
+  color: aliceblue;
+}
+.btn-danger {
+  background-color: #b6465f;
+  border: none;
+}
+.card-border {
+  border-radius: 4px;
+  background-color: #EDEDED;
+}
+.inverted-3 {
+    background:
+      linear-gradient(-135deg, #3B6B94  50%, #fff 0) var(--_d, 100%)/250% no-repeat,
+      linear-gradient(-135deg, #3B6B94 50%, #5BC0F8 0) var(--_d, 100%)/250% no-repeat;
+    -webkit-background-clip: text, padding-box;
+            background-clip: text, padding-box;
+    transition: 0.8s
+  }
 
-<div class="container-fluid" style="height: 100vh; background-size: 100%; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/?orientation=landscape&<%= Event.first.sport.name.downcase %>')">
+  .inverted-3:hover {
+    --_d: 50%;
+  }
+</style>
+<div class="container-fluid" style="height: 100vh; background-size: 100%; object-fit: cover; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/?orientation=landscape&<%= @event.sport.name.downcase %>')">
   <div class="row justify-content-center">
     <div class="col-4">
       <div class="container mt-5">
-        <div class="card mx-auto" style="max-width: 20rem;">
+        <div class="card card-border mx-auto" style="max-width: 20rem;">
           <div class="card-body">
             <div class="row">
               <div class="col-12 text-center">
@@ -25,14 +52,20 @@
                   <% if @event.user_id == current_user.id %>
                     <%= link_to "Cancel Event", event_path(@event), data: { turbo_method: :delete, confirm: "Are you sure you want to cancel this event?" }, class: "btn btn-danger" %>
                   <% end %>
+                    <div class="row mt-5">
+                      <div class="col-12 text-center" style= "padding: 20px, padding-top: -10px, width: 150px">
+                        <%= link_to "Back to all events", events_path, class: "btn btn-primary", input_html: {role: "button"}%>
+                      </div>
+                    </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-4">
-      <div class="card mx-auto mt-5" style="max-width: 20rem;">
+
+  <div class="col-4">
+    <div class="card card-border mx-auto mt-5" style="max-width: 20rem;">
       <div class="card-body">
         <h3 class="card-title text-center text-primary">Participants</h3>
           <ul class="list-unstyled">
@@ -42,37 +75,32 @@
           </ul>
         <div class="text-center mt-3">
           <% if current_user %>
-              <% if current_user.participating_users.find_by(event_id: @event.id) %>
-                <%# <button class="btn btn-primary" disabled>Signed Up!</button> %>
-                <%= link_to "Cancel Registration",
-                  participating_user_path(current_user.participating_users.find_by(event_id: @event.id)),
-                  data: { turbo_method: :delete, confirm: "Are you sure you want to cancel your registration?" },
-                  class: "btn btn-danger" %>
-              <% else %>
-                <%= simple_form_for [@event, @participating_user] do |form| %>
-                  <%= form.submit 'Sign up', class: "btn btn-primary" %>
+            <% if current_user.participating_users.find_by(event_id: @event.id) %>
+              <%# <button class="btn btn-primary" disabled>Signed Up!</button> %>
+              <%= link_to "Cancel Registration",
+                participating_user_path(current_user.participating_users.find_by(event_id: @event.id)),
+                data: { turbo_method: :delete, confirm: "Are you sure you want to cancel your registration?" },
+                class: "btn btn-danger" %>
+            <% else %>
+              <%= simple_form_for [@event, @participating_user] do |form| %>
+                <%= form.submit 'Sign up', class: "btn btn-primary" %>
               <% end %>
             <% end %>
           <% end %>
         </div>
       </div>
     </div>
-    </div>
+  <div class="text-center mx-auto">
+    <div><br>
+      <% if current_user %>
+        <% if current_user.participating_users.find_by(event_id: @event.id) %>
+            <%= link_to 'Join the group chat!', chatroom_path(@chatroom), class: "btn btn-primary-1 btn-lg inverted-3" %>
+        <% end %>
+      <% end %>
+        </div>
 
-
-  </div>
-
-</div>
-<div class="row mt-5">
-    <div class="card text-center" style="width: 20%; margin: auto;">
-      <div class="container" style="padding: 20px">
-        <h3 class="text-center text-primary"><b>Chat for <%= @event.title %></b></h3>
-          <%= link_to 'Join the chat', chatroom_path(@chatroom), class: "btn btn-secondary btn-sm" %>
       </div>
     </div>
-</div>
-<div class="row mt-5">
-  <div class="col-12 text-center" style= "padding: 20px">
-    <%= link_to "Back to all events", events_path, class: "btn btn-primary", input_html: {role: "button"}%>
   </div>
+
 </div>
