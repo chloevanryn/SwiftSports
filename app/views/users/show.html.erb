@@ -1,38 +1,52 @@
-<div class="profile">
-  <div class="ds-top"></div>
-  <div class="avatar-holder">
-    <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, class: 'rounded-circle profile-pic'%>
-    <% else %>
-        <%= image_tag "default_avatar.png", class: 'rounded-circle profile-pic' %>
-    <% end %>
-  </div>
-  <div class="name">
-    <h5><%= @user.username %></h5>
-    <div class="bio">
+<style>
+  .toppy {
+    margin-bottom: 50px;
+  }
+</style>
 
-      <div class="bio-content"><%= @user.bio %></div>
+<div class="container">
+  <div class="container profile mx-auto">
+    <div class="ds-top">
     </div>
-  </div>
-  <div class="ds-skill text-center">
-    <h6>Sports <i aria-hidden="true"></i></h6>
-    <% @user.user_sports.each do |sport| %>
-      <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo mt-2' %>
-    <% end %>
-    <div class="text-center pt-2">
-      <% if @user == current_user %>
-        <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary" %>
+    <div class="avatar-holder">
+      <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, class: 'rounded-circle profile-pic'%>
+      <% else %>
+          <%= image_tag "default_avatar.png", class: 'rounded-circle profile-pic' %>
       <% end %>
     </div>
+
+    <div class="name">
+      <h5><%= @user.username %></h5>
+      <div class="bio">
+        <div class="bio-content">
+          <%= @user.bio %>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-skill text-center">
+      <h6>Sports<i aria-hidden="true"></i></h6>
+      <% @user.user_sports.each do |sport| %>
+        <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo mt-2' %>
+      <% end %>
+      <div class="text-center pt-2">
+        <% if @user == current_user %>
+          <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="card-ratings" style="height: 10px;">
+      </div>
+    </div>
+  </div>
+  <div class="container text-center" style="margin-top: 600px">
+    <% if @user != current_user %>
+      <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-primary toppy", input_html: {role: "button"}%>
+    <% end %>
+    <% @user.ratings.each do |f|%>
+    <div class="d-flex flex-column row text-center mt-2">
+      	&#11088; <%= f.comment %> &#11088;
+    </div>
+    <% end %>
   </div>
 </div>
-  <div class="card-ratings" style="height: 10px;">
-    <div class="card-body">
-      <% @user.ratings.each do |f|%>
-        <%= f.comment %>
-      <% end %>
-    </div>
-  </div>
-  <% if @user != current_user %>
-    <%= link_to "Tell us about the user", new_user_rating_path(@user), class: "btn btn-primary", input_html: {role: "button"}%>
-  <% end %>

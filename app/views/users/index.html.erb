@@ -1,8 +1,4 @@
 <style>
-body {
-  background-color: #EDEDED;
-}
-
 .athlete-pic {
   object-fit: cover;
   height: 150px;
@@ -33,7 +29,7 @@ body {
   color: #2ede31;
 }
 
-h1 {
+.athletetitle {
   color: #0D315B;
   align-items: center;
   text-align: center;
@@ -42,7 +38,7 @@ h1 {
   font-weight: bold;
 }
 
-h3 {
+.h33 {
   margin-top: 10px;
   margin-bottom: 10px;
   margin: 0 auto;
@@ -56,12 +52,6 @@ h3 {
   width: 250px;
   padding: 5px;
   margin-bottom: 10px;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
 }
 
 .sportcircle {
@@ -80,41 +70,38 @@ h3 {
 .sport-photo:hover {
 	transform: translateY(-3px);
 }
-
 </style>
 
-<body>
-<h1 style="color: #0D315B;">Athletes near you</h1>
+<h1 class="athletetitle" style="color: #0D315B;">Athletes near you</h1>
 
-<div class="row row-cols-1 row-cols-md-5">
-  <% @users.each do |user| %>
-    <div class="col-md-3 pb-4 mb-10">
-
-        <div class="athlete-card flex-container shadow mx-auto" style="background-color: white;">
-          <%= link_to user_path(user) do %>
-            <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, class: 'rounded-circle athlete-pic d-flex mx-auto' %>
-            <% else %>
-              <%= image_tag "default_avatar.png", class: 'rounded-circle athlete-pic d-flex mx-auto' %>
-            <% end%>
-          <% end %>
-          <div class="flex-container text-center">
-          <div style="padding-bottom: 20px">
-
-          </div>
-          <div class="flex-container text-center">
-          <div class="card-body text-center">
-            <div style="padding-bottom: 20px">
-            <%= link_to user.username, user_path(user), class: 'btn btn-primary' %>
-            </div>
-            <% user.user_sports.each do |sport| %>
-            <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo' %>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-5">
+    <% @users.each do |user| %>
+      <div class="col-md-3 pb-4 mb-10">
+          <div class="athlete-card flex-container shadow mx-auto" style="background-color: white;">
+            <%= link_to user_path(user) do %>
+              <% if user.photo.attached? %>
+                <%= cl_image_tag user.photo.key, class: 'rounded-circle athlete-pic d-flex mx-auto' %>
+              <% else %>
+                <%= image_tag "default_avatar.png", class: 'rounded-circle athlete-pic d-flex mx-auto' %>
+              <% end%>
             <% end %>
+            <div class="flex-container text-center">
+              <div style="padding-bottom: 20px">
+              </div>
+            <div class="flex-container text-center">
+              <div class="card-body text-center" style="margin-bottom: 5px">
+                <div style="padding-bottom: 20px">
+                  <%= link_to user.username, user_path(user), class: 'btn btn-primary' %>
+                </div>
+                <% user.user_sports.each do |sport| %>
+                  <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo' %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-</body>
