@@ -62,8 +62,10 @@
   }
 </style>
 
+<h1 class="text-center mt-5"><b>All Sporting Events</b></h1>
+
 <div class="container" data-controller="toggle">
-  <div class="d-flex flex-row justify-content-center mt-4 mb-5" style="padding: 10px; gap: 20px;">
+  <div class="d-flex flex-row justify-content-center mt-2" style="padding: 10px; gap: 20px;">
     <h4>Map view</h4>
     <label class="switch" data-toggle-target="togglebutton" data-action="change->toggle#updateView">
       <input type="checkbox">
@@ -72,10 +74,8 @@
     <h4>List view</h4>
   </div>
 
-  <h1 class="text-center" style="margin-top: 10px"><b>All Sporting Events</b></h1>
 
-
-<div class="container" style="padding: 40px">
+<div class="container" style="padding: 30px">
   <div class="row">
     <div class="col-12 text-center">
       <% if current_user %>
@@ -95,7 +95,7 @@
 
   <div class="row mt-5 d-none" data-toggle-target="list">
     <% @events.each do |event| %>
-      <div class="col-3 mb-4">
+      <div class="col-3 mb-3 mx-auto">
         <div class="card">
           <%= link_to event_path(event), class: "b-primary" do %>
             <img src="https://source.unsplash.com/random/?orientation=landscape&<%= event.sport.name.downcase %>">
