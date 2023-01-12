@@ -2,6 +2,9 @@
 <% content_for :meta_description, @event.description %>
 <%# content_for :meta_image, image_path(@event.photo.key) if @event.photo.attached? %>
 <style>
+.text-primary-2 {
+  color: #3B6B94;
+}
 .btn-primary-1 {
   border-radius: 4px;
   width: 280px;
@@ -15,6 +18,7 @@
 .card-border {
   border-radius: 4px;
   background-color: #EDEDED;
+  border: 5px;
 }
 .inverted-3 {
     background:
@@ -37,7 +41,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12 text-center">
-                <h1 class="text-center text-primary"><%= @event.title %></h1>
+                <h1 class="text-center text-primary-2"><%= @event.title %></h1>
                   <p class="text-center text-secondary">
                     <strong>Sport:</strong> <%= @event.sport.name %><br>
                     <strong>Description:</strong> <%= @event.description %><br>
@@ -66,8 +70,8 @@
 
   <div class="col-4">
     <div class="card card-border mx-auto mt-5" style="max-width: 20rem;">
-      <div class="card-body">
-        <h3 class="card-title text-center text-primary">Participants</h3>
+      <div class="card-body text-center">
+        <h3 class="card-title text-center text-primary-2">Participants</h3>
           <ul class="list-unstyled">
             <% @event.participating_users.each do |participating_user| %>
               <li class="text-center text-secondary"><%= participating_user.user.username %></li>
@@ -83,7 +87,7 @@
                 class: "btn btn-danger" %>
             <% else %>
               <%= simple_form_for [@event, @participating_user] do |form| %>
-                <%= form.submit 'Sign up', class: "btn btn-primary" %>
+                <%= form.submit 'Sign up', class: "btn btn-primary-1 btn-lg inverted-3" %>
               <% end %>
             <% end %>
           <% end %>

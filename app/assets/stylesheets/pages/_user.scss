@@ -13,6 +13,8 @@ html, body {
   height: 20px;
 }
 .profile {
+  display: flex;
+  flex-wrap: wrap;
   position: absolute;
   margin: auto;
   top: 0;
@@ -86,8 +88,15 @@ html, body {
       left: 0;
       right: 0;
       bottom: 0;
-      color: white;
+      color: #3B6B94;
       width: 40px;
+
+    }
+    .small-bio {
+      width: 80%;
+      position: relative;
+      top: -10px; /* adjust as needed */
+      margin: 0 auto;
     }
   }
   .button {
@@ -211,6 +220,7 @@ html, body {
     }
   }
 }
+
 
 @keyframes fadeInMove {
   0% {
