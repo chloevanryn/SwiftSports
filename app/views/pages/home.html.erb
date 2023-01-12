@@ -20,7 +20,7 @@
         </div>
         <% if user_signed_in?%>
         <div class="container text-center" style="margin-top: 50px;">
-          <%= link_to "Join an event in your area", events_path, class: "btn btn-primary btn-lg inverted-3" %>
+          <%= link_to "Join a group in your area", groups_path, class: "btn btn-primary btn-lg inverted-3" %>
         </div>
         <% else %>
         <div class="container text-center" style="margin-top: 50px;">
@@ -35,7 +35,7 @@
 
 <div class="container mb-5" style="padding: 20px; column-gap: 20px">
     <div style="padding: 20px">
-      <h1>Featured Events:</h1>
+      <h1>Featured Groups:</h1>
     </div>
     <div class="row" style="">
       <div class="col-md-7">
@@ -47,10 +47,10 @@
           </div>
           <div class="carousel-inner">
             <% @groups.each do |group| %>
-            <%= link_to group_path(group) do%>
-            <div class="carousel-item active">
-              <%= cl_image_tag group.photo.key, class: 'd-block w-100 rounded pic', height: '450', width: '350'%>
-            </div>
+            <%= link_to group_path(group) do %>
+              <div class="carousel-item active">
+                <%= cl_image_tag group.photo.key, class: 'd-block w-100 rounded pic', height: '450', width: '350'%>
+              </div>
             <%end%>
             <%end%>
           </div>

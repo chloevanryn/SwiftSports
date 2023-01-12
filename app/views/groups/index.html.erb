@@ -45,21 +45,26 @@
         </div>
     </div>
 </div>
-  <div class="container mx-auto" style="padding: 20px">
-    <div class="row justify-content-center">
-      <h3 class="subheader text-center" style="padding: 50px"><b>Browse available groups below!</b></h3>
-        <div class="cards" id="group-cards">
-      <% @groups.each do |group| %>
-        <%= link_to group_path(group), class: "b-primary" do %>
-          <div class="card text-center">
+<div class="container mx-auto" style="padding: 20px">
+  <div class="row justify-content-center">
+    <h3 class="subheader text-center" style="padding: 50px"><b>Browse available groups below!</b></h3>
+    <div class="cards" id="group-cards">
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group), class: "b-primary" do %>
+        <div class="card text-center">
+          <% if group.photo.attached? %>
             <div class="img-thumbnail pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo.key, crop: :fill %>');">
             </div>
-            <div class="container justify-content-center text-center" style="margin: auto">
-              <h4 class="b-primary"><b><%= group.title %></b></h4>
+          <% else %>
+            <div class="img-thumbnail pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.publicdomainpictures.net/pictures/280000/t2/not-found-image-15383864787lu.jpg');">
             </div>
+          <% end %>
+          <div class="container justify-content-center text-center" style="margin: auto">
+            <h4 class="b-primary"><b><%= group.title %></b></h4>
           </div>
-        <% end %>
+        </div>
       <% end %>
+    <% end %>
     </div>
   </div>
 </div>
