@@ -1,4 +1,33 @@
 
+<style>
+  .profile-pic {
+    object-fit: cover;
+
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
+  }
+
+  .profile-card-body h3 {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .profile-card {
+    background: white;
+    border-radius: 5%;
+    height: 270px;
+    width: 400px;
+    margin-top: 40px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
 <div class="profile">
   <div class="ds-top"></div>
   <div class="avatar-holder">
@@ -26,32 +55,6 @@
 </div>
 
   </div>
-
-
-<%# below code is old, new code is above %>
-
-
-
-
-<%# <div class="flex-container"> %>
-      <%# <div class="card"> %>
-        <%# <% if @user.photo.attached? %>
-        <%# <%= cl_image_tag @user.photo.key, class: 'rounded-circle profile-pic' %>
-        <%# <% else %>
-        <%# <%= image_tag "default_avatar.png", class: 'rounded-circle profile-pic' %>
-        <%# <% end %>
-      <%# <div class="profile-card-body"> %>
-        <%# <h3><%= @user.username</h3> %>
-      <%# </div> %>
-    <%# </div> %>
-<%# </div> %>
-
-
-
-    <%# <% @user.user_sports.each do |sport| %>
-    <%# <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo mt-2' %>
-    <%# <% end %>
-    <%# </div> %>
 
   <%# <div class="card" style="height: 10px;"> %>
     <%# <div class="card-body"> %>
