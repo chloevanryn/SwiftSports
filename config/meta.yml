@@ -1,6 +1,6 @@
 meta_name: "SwiftSports - Connecting Athletes in your area"
 meta_title: "SwiftSports - Connecting Athletes in your area"
 meta_description: "There is ability to play sports everywhere for everyone!"
-meta_image: "ogimage.jpeg" #should exist in `app/assets/images/`
+meta_image: "ogimage.jpg" #should exist in `app/assets/images/`
 meta_product_name: "Application for Social Sports"
 twitter_account: "@your_twitter_account"   # required for Twitter Cards
