@@ -18,3 +18,6 @@ application.register("map", MapController)
 
 import ToggleController from "./toggle_controller"
 application.register("toggle", ToggleController)
+
+import TypescriptController from "./typescript_controller"
+application.register("typescript", TypescriptController)
