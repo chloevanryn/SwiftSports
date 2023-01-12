@@ -89,7 +89,7 @@ h3 {
 <div class="row row-cols-1 row-cols-md-5">
   <% @users.each do |user| %>
     <div class="col-md-3 pb-4 mb-10">
-      <div class="flex-container">
+
         <div class="athlete-card flex-container shadow mx-auto" style="background-color: white;">
           <%= link_to user_path(user) do %>
             <% if user.photo.attached? %>
@@ -98,14 +98,14 @@ h3 {
               <%= image_tag "default_avatar.png", class: 'rounded-circle athlete-pic d-flex mx-auto' %>
             <% end%>
           <% end %>
-          <div class="text-center">
+          <div class="flex-container text-center">
           <div style="padding-bottom: 20px">
-            <%= link_to user.username, user_path(user), class: 'btn btn-primary' %>
+
           </div>
           <div class="flex-container text-center">
           <div class="card-body text-center">
             <div style="padding-bottom: 20px">
-            <h3><%= link_to user.username, user_path(user), class: 'a-athlete' %></h3>
+            <%= link_to user.username, user_path(user), class: 'btn btn-primary' %>
             </div>
             <% user.user_sports.each do |sport| %>
             <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo' %>
