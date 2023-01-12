@@ -1,11 +1,21 @@
-<div id="message-<%= message.id %>">
-  <small class="d-flex flex-row">
-      <%= cl_image_tag message.user.photo.key, class: 'rounded-circle pic', height: '70', width: '70' %>
-      <strong><%= message.user.username %></strong>
-      <div style="margin-left: 10px">
-      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-      <p class="text-start" style="margin-top: 20px; margin-left: 10px"><%= message.conten %></p>
+Copy code
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex flex-row">
+      <div class="pic-holder">
+        <%= cl_image_tag message.user.photo.key, class: 'rounded-circle pic', height: '70', width: '70' %>
       </div>
-  </small>
-
+      <div class="message-info">
+        <div class="username">
+          <strong><%= message.user.username %></strong>
+        </div>
+        <div class="time">
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </div>
+        <div class="content">
+          <p class="text-start" style="margin-top: 20px; margin-left: 10px"><%= message.content %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
