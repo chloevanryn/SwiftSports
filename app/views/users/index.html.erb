@@ -66,6 +66,7 @@ h3 {
   margin: 3px;
   border-radius: 50%;
   display: inline-block;
+
   }
 
 .sport-photo {
@@ -94,7 +95,9 @@ h3 {
             <% end%>
           <% end %>
           <div class="card-body text-center">
+            <div style="padding-bottom: 20px">
             <h3><%= link_to user.username, user_path(user), class: 'a-athlete' %></h3>
+            </div>
             <% user.user_sports.each do |sport| %>
             <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo' %>
             <% end %>
