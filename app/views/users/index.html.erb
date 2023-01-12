@@ -16,6 +16,9 @@ body {
 
 .athlete-pic:hover {
   transform: translateY(-3px);
+  border-width: thick;
+  border-style: solid;
+  border-color: #2ede31 !important;
 }
 
 
@@ -48,10 +51,11 @@ h3 {
 
 .athlete-card {
   background-color: white;
-  border-radius: 1%;
-  height: 350px;
+  border-radius: 5%;
+  min-height: 320px;
   width: 250px;
   padding: 5px;
+  margin-bottom: 10px;
 }
 
 .flex-container {
@@ -82,11 +86,11 @@ h3 {
 <body>
 <h1 style="color: #0D315B;">Athletes near you</h1>
 
-<div class="row row-cols-1 row-cols-md-4">
+<div class="row row-cols-1 row-cols-md-5">
   <% @users.each do |user| %>
-    <div class="col-md-3">
-      <div class="flex-container">
-        <div class="athlete-card shadow mx-auto">
+    <div class="col-md-3 pb-4 mb-10">
+
+        <div class="athlete-card flex-container shadow mx-auto" style="background-color: white;">
           <%= link_to user_path(user) do %>
             <% if user.photo.attached? %>
               <%= cl_image_tag user.photo.key, class: 'rounded-circle athlete-pic d-flex mx-auto' %>
@@ -94,13 +98,19 @@ h3 {
               <%= image_tag "default_avatar.png", class: 'rounded-circle athlete-pic d-flex mx-auto' %>
             <% end%>
           <% end %>
+          <div class="flex-container text-center">
+          <div style="padding-bottom: 20px">
+
+          </div>
+          <div class="flex-container text-center">
           <div class="card-body text-center">
             <div style="padding-bottom: 20px">
-            <h3><%= link_to user.username, user_path(user), class: 'a-athlete' %></h3>
+            <%= link_to user.username, user_path(user), class: 'btn btn-primary' %>
             </div>
             <% user.user_sports.each do |sport| %>
             <%= image_tag sport.sport.photo, class: 'sportcircle sport-photo' %>
             <% end %>
+            </div>
           </div>
         </div>
       </div>
