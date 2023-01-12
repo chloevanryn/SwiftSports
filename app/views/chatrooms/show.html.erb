@@ -1,10 +1,10 @@
-<div class="container-fluid chatroombox">
+<div class="container-fluid chatroombox" style="margin-top: 30px">
 <div class="container chatcontainer">
   <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
-  <h1>#<%= @chatroom.name %></h1>
+  <h1><%= @chatroom.name %> - Chat</h1>
 
     <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
@@ -20,7 +20,7 @@
     %>
     <%= f.input :conten,
     label: false,
-    placeholder: "Message ##{@chatroom.name}",
+    placeholder: "Write something here ...",
     wrapper_html: {class: "flex-grow-1"}
     %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
