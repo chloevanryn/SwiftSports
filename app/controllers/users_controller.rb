@@ -15,6 +15,15 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def update
+    if @user.update(user_params)
+      render json: @user, status: :ok
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -26,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :photo)
+    params.require(:user).permit(:username, :email, :photo, :bio)
   end
   # add params require for adding a picture
 end
