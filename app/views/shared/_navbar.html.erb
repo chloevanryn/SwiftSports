@@ -31,7 +31,7 @@
               class: "form-control",
               placeholder: "Search for something..."
             %>
-            <%= submit_tag "Search", class: "btn btn-primary"%>
+            <%= submit_tag "Search", class: "btn btn-primary ml-8"%>
           <% end %>
         </div>
       </div>
@@ -44,16 +44,9 @@
               <% else %>
                 <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
-              <%#= cl_image_tag == current_user.photo.key : image_tag @user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-
-                <%#= link_to "Messages", "#", class: "dropdown-item" %>
-                <%#= link_to "Events", "/events", class: "dropdown-item" %>
-                <%#= link_to "Groups", groups_path, class: "dropdown-item" %>
-
                 <%= link_to "Add a Sport",  new_user_sport_path, class: "dropdown-item" %>
-
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
             </li>
