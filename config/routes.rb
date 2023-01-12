@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :create]
   end
 
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: [:index, :show] do
     resources :ratings, only: [:new, :create]
   end
 
