@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
-    @groups = Group.all
+    @groups = Group.first(3)
   end
 
   def search
