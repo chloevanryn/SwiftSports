@@ -3,17 +3,16 @@
   background-size: cover;
 
   .chatcontainer {
-    width: 65%;
+    width: 60%;
   }
 
   .chatroom {
     background-color: white;
-    margin-top: 9px;
-    margin-bottom: 150px;
-    height: calc(100vh - 55px);
+    margin-top: 15px;
+    margin-bottom: 55px;
+    height: calc(100vh - 300px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     flex-grow: 1;
   }
 

@@ -21,7 +21,7 @@
   <div class="col-3 mb-3">
     <div class="card-category" style="background-color: #EDEDED">
       <div class="card-body">
-          <h4 class="text-center"><b>About this group:</b></h4>
+          <h4 class="text-center heady2"><b>About this group:</b></h4>
           <p class="card-text text-center">
           <%= @group.description %>
         </p>
@@ -31,7 +31,7 @@
   <div class="col-3 mb-3">
     <div class="card-category" style="background-color: #EDEDED">
       <div class="card-body">
-        <h4 class="text-center"><b>Members:</b></h4>
+        <h4 class="text-center heady2"><b>Members:</b></h4>
         <% if @users.empty? %>
           <h5 class="text-center">This group has no members</h5>
           <h4 class="text-center">&#128550</h4>
@@ -74,7 +74,7 @@
     <div class="col-12 text-center" style="padding: 20px">
 
       <% if @joined %>
-      <h1 class="text-center">Post something to the group! </h1>
+      <h1 class="text-center heady">Post something to the group! </h1>
       <%# <div class="d-grid gap-4 col-3 mx-auto">
         <%= link_to 'Share your news with us!', group_path(@group), class: "btn btn-primary btn-lg" %>
         <%# </div> %>
@@ -110,7 +110,7 @@
     </div>
   </div>
 <% else %>
-  <h1 class="text-center">Join this group to see their posts! </h1>
+  <h1 class="text-center heady">Join this group to see their posts! </h1>
 <% end %>
 <div class="container text-center" style="margin-bottom: 30px">
   <% if current_user %>
