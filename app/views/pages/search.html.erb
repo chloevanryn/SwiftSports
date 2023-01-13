@@ -54,25 +54,21 @@
 </style>
 
 <div class="container mt-5">
-  <h1 class="title10">Search Results</h1>
-    <div class="card-product">
-      <img src="https://images.unsplash.com/photo-1580974598079-215a0604a9c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNwb3J0JTIwZmllbGR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60">
-      <div class="card-product-infos">
-        <% @results.each do |result| %>
-              <div class="col-md-3">
-                <div class="card-1 mb-3">
-                  <div class="card-body-1">
-                    <% if result.class == User %>
-                      <h5 class="card-title"><%= link_to result.username, user_path(result) %></h5>
-                    <% elsif result.class == Group %>
-                      <h5 class="card-title"><%= link_to result.title, group_path(result) %></h5>
-                    <% elsif result.class == Event %>
-                      <h5 class="card-title"><%= link_to result.title, event_path(result) %></h5>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-          <% end %>
+  <h1 class="heady2">Search Results</h1>
+  <div class="row text-center">
+    <% @results.each do |result| %>
+      <div class="col-md-3">
+        <div class="card-1 mb-3">
+          <div class="card-body-1">
+            <% if result.class == User %>
+              <h5 class="card-title"><%= link_to result.username, user_path(result) %></h5>
+            <% elsif result.class == Group %>
+              <h5 class="card-title"><%= link_to result.title, group_path(result) %></h5>
+            <% elsif result.class == Event %>
+              <h5 class="card-title"><%= link_to result.title, event_path(result) %></h5>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 </div>

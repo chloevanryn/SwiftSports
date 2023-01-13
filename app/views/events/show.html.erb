@@ -32,32 +32,51 @@
   .inverted-3:hover {
     --_d: 50%;
   }
+  .allsides-4 {
+  background:
+    linear-gradient(currentColor 0 0) var(--p, 100%) 0,
+    linear-gradient(currentColor 0 0) 0 var(--d, 0),
+    linear-gradient(currentColor 0 0) var(--d, 0) 100%,
+    linear-gradient(currentColor 0 0) 100% var(--p, 100%);
+  background-size: var(--d, 0) 3px, 3px var(--d, 0);
+  background-repeat: no-repeat;
+  transition: 0.5s, background-position 0s 0.5s;
+}
+.allsides-4:hover {
+  --d: 100%;
+  --p: 0%
+}
 </style>
 <div class="container-fluid" style="height: 100vh; background-size: 100%; object-fit: cover; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/?orientation=landscape&<%= @event.sport.name.downcase %>')">
   <div class="row justify-content-center">
-    <div class="col-4">
+    <div class="col-3">
       <div class="container mt-5">
-        <div class="card card-border mx-auto" style="max-width: 20rem;">
+        <div class="card card-border mx-auto" style="width: 600px; height: 600px; background-color: #EDEDED;">
           <div class="card-body">
             <div class="row">
               <div class="col-12 text-center">
 
-                <h1 class="text-center"><%= @event.title %></h1>
-
-                  <p class="text-center text-secondary">
-                    <strong>Sport:</strong> <%= @event.sport.name %><br>
-                    <strong>Description:</strong> <%= @event.description %><br>
-                    <strong>Level:</strong> <%= @event.level.name %><br>
-                    <strong>Location:</strong> <%= @event.location %><br>
-                    <strong>Date:</strong> <%= @event.date %><br>
-                    <strong>Time:</strong> <%= @event.time %>
+                <h1 class="text-center heady2 allsides-4" style="margin-bottom: 30px; display: inline-flex; padding: 15px"><%= @event.title %></h1>
+                <div class="container" style="border: 8px solid; border-image: linear-gradient(45deg, #579DFF, #0A2647) 1; padding; 10px">
+                  <div class="container" style="margin-top: 40px; margin-bottom: 40px">
+                  <p>
+                    <strong>Sport: </strong> <%= @event.sport.name %><br>
+                    <strong>Description: </strong> <%= @event.description %><br>
+                    <strong>Level: </strong> <%= @event.level.name %><br>
+                    <strong>Location: </strong> <%= @event.location %><br>
+                    <strong>Date: </strong> <%= @event.date %><br>
+                    <strong>Time: </strong> <%= @event.time %>
                   </p>
-                  <% if @event.user == current_user %>
-                    <%= link_to "Update Event", edit_event_path(@event), class: "btn btn-secondary" %>
-                  <% end %>
+                  </div>
+                  </div>
+                  <div class="container d-flex justify-content-center" style="margin-top: 40px; gap: 20px">
                   <% if @event.user_id == current_user.id %>
                     <%= link_to "Cancel Event", event_path(@event), data: { turbo_method: :delete, confirm: "Are you sure you want to cancel this event?" }, class: "btn btn-danger" %>
                   <% end %>
+                  <% if @event.user == current_user %>
+                    <%= link_to "Update Event", edit_event_path(@event), class: "btn btn-secondary" %>
+                  <% end %>
+                  </div>
                     <div class="row mt-5">
                       <div class="col-12 text-center" style= "padding: 20px, padding-top: -10px, width: 150px">
                         <%= link_to "Back to all events", events_path, class: "btn btn-primary", input_html: {role: "button"}%>
@@ -70,13 +89,15 @@
       </div>
     </div>
 
-  <div class="col-4">
-    <div class="card card-border mx-auto mt-5" style="max-width: 20rem;">
+  <div class="col-3">
+    <div class="card card-border mx-auto mt-5" style="max-width: 20rem; background-color: #EDEDED;">
       <div class="card-body text-center">
-        <h3 class="card-title text-center text-primary-2">Participants</h3>
+        <h3 class="card-title text-center heady2">Participants</h3>
           <ul class="list-unstyled">
             <% @event.participating_users.each do |participating_user| %>
+            <%= link_to user_path(participating_user.user) do %>
               <li class="text-center text-secondary"><%= participating_user.user.username %></li>
+            <% end %>
             <% end %>
           </ul>
         <div class="text-center mt-3">

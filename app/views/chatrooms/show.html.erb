@@ -1,10 +1,10 @@
 <div class="container-fluid chatroombox" style="margin-top: 30px">
+<h1 class="heady"><%= @chatroom.name %> - Chat</h1>
 <div class="container chatcontainer">
   <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
-  <h1><%= @chatroom.name %> - Chat</h1>
 
     <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
@@ -25,6 +25,9 @@
     %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
     <% end %>
+    <div class="text-center d-flex-inline">
+    <%= link_to "Back to the event", event_path(@chatroom.event), class: "btn btn-primary", input_html: {role: "button"}%>
+    </div>
   </div>
 </div>
 </div>

@@ -9,6 +9,13 @@
   .pic {
     object-fit: cover;
   }
+  .highlight {
+  display: inline-flex;
+  background-image: linear-gradient(to right, #579dff, #427dcd, #2e5e9e, #1c4171, #0a2647);
+  border-radius: 6px;
+  padding: 3px 6px;
+  opacity: .9;
+}
 </style>
 
   <header class="text-white py-5">
@@ -35,7 +42,7 @@
 
 <div class="container mb-5" style="padding: 20px; column-gap: 20px">
     <div style="padding: 20px">
-      <h1>Featured Groups:</h1>
+      <h1 class="heady2">Featured Groups:</h1>
     </div>
     <div class="row" style="">
       <div class="col-md-7">
@@ -50,6 +57,9 @@
             <%= link_to group_path(group) do %>
               <div class="carousel-item active">
                 <%= cl_image_tag group.photo.key, class: 'd-block w-100 rounded pic', height: '450', width: '350'%>
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="highlight" style="font-size: 40px"><%=group.title%></h1>
+                </div>
               </div>
             <%end%>
             <%end%>
@@ -66,7 +76,7 @@
       </div>
       <div class="col-md-5" style="">
         <div class="container d-flex flex-column" style="margin-left: 50px;">
-          <h1 class="text-center" style="margin-bottom: 40px">About us</h1>
+          <h1 class="text-center heady" style="margin-bottom: 40px">About us</h1>
           <p>Welcome to SwiftSports! We are an organisation that is passionate about staying active and engaging with others who share the same interests. Whether you're a seasoned athlete or just starting out, our community provides a supportive and inclusive environment for all skill levels. We host regular meetups, events, and competitions for a variety of sports, including but not limited to running, cycling, swimming and team sports. Our goal is to promote healthy living, foster connections, and build a community of like-minded individuals who love being active and pushing their limits. Join us today and let's play together!</p>
         </div>
       </div>
