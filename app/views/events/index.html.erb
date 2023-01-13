@@ -77,9 +77,14 @@
 
 <div class="container" style="padding: 40px">
   <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-6 text-center">
       <% if current_user %>
         <%= link_to 'Create New Event', new_event_path, class: 'btn btn-primary btn-lg inverted-3' %>
+      <% end %>
+    </div>
+     <div class="col-6 text-center">
+      <% if current_user %>
+        <%= link_to 'List of My Events', my_events_events_path, class: 'btn btn-primary btn-lg inverted-3' %>
       <% end %>
     </div>
   </div>
