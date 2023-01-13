@@ -4,13 +4,21 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get '/my_events', to: 'events#my_events'
   get '/search', to: 'pages#search', as: :search
+
   resources :groups, only: [:new, :create, :show, :index, :edit, :update] do
     resources :user_groups, only: [:create]
     resources :posts, only: [:new, :create]
   end
 
+  # resources :user_sports do
+  #   member do
+  #     get :edit
+  #   end
+  # end
+
   resources :users, only: [:index, :show] do
     resources :ratings, only: [:new, :create]
+    resources :user_sports, only: [:edit, :update]
   end
 
 
