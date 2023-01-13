@@ -20,7 +20,10 @@ class EventsController < ApplicationController
 
   def my_events
     @user = current_user
-    @events = @user.events
+    @participations = @user.participating_users
+    @events = @participations.map do |participation|
+      participation.event
+    end
   end
 
   def show

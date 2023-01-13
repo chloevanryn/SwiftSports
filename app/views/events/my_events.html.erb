@@ -1,15 +1,41 @@
-<html>
-  <body>
-    <div class="container">
-    <h1 class="form_header heady">All your events:</h1>
-      <% current_user.events.each do |event| %>
-      <%= event.title %>
-      <%= event.description %>
-      <%= event.description %>
-      <%= event.location %>
-      <%= event.date %>
-      <%= event.time %>
-      <% end %>
-    </div>
-  </body>
-</html>
+<div class="container">
+  <div class="d-flex flex-row justify-content-center mt-4 mb-5" style="padding: 10px; gap: 20px;">
+  <h1 class="text-center" style="margin-top: 10px"><b>All Your Events</b></h1>
+  </div>
+
+<div class="container" style="padding: 40px">
+  <div class="row">
+    <div class="col-6 text-center">
+          </div>
+  </div>
+</div>
+
+  <div class="row mt-5">
+
+    <% @events.each do |event| %>
+      <div class="col-3 mb-4">
+        <div class="card">
+          <%= link_to event_path(event), class: "b-primary" do %>
+            <img src="https://source.unsplash.com/random/?orientation=landscape&<%= event.sport.name.downcase %>">
+            <div class="card__content">
+              <h2><b><%=event.title%></b></h2>
+              <p style="font-size: 16px">
+                <%=event.description%>
+              </p>
+              <a href="#" class="card__content"></a>
+              <h6 class="text-center"><b>Location: </b><%=event.location%></h6>
+              <%= event.date %>
+              <%= event.time %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+        <div class="row mt-5">
+          <div class="col-12 text-center" style= "padding: 20px, padding-top: -10px, width: 150px">
+            <%= link_to "Back to all events", events_path, class: "btn btn-primary", input_html: {role: "button"}%>
+          </div>
+        </div>
+</div>

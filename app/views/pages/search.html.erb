@@ -1,16 +1,57 @@
 <style>
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
 
-.card-body-1 {
-  background-color: lightgray;
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }
 
 .card-title a {
-  color: blue;
+  color: #03045E;
   font-weight: bold;
   text-decoration: none;
 }
-</style>
 
+.card-title a:hover {
+  color: #2ede31;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+  .title10 {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-weight: bold;
+    color: #03045E;
+  }
+</style>
 
 <div class="container mt-5">
   <h1 class="heady2">Search Results</h1>
@@ -29,6 +70,5 @@
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
 </div>
