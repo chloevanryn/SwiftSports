@@ -47,13 +47,13 @@
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-                <%#= link_to "Add a Sport",  new_user_sport_path, class: "dropdown-item" %>
+                <%= link_to "Add a Sport",  new_user_sport_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link text-white border" %>
+              <%= link_to "Login", new_user_session_path, class: "btn btn-primary nav-link text-white border" %>
             </li>
           <% end %>
         </ul>

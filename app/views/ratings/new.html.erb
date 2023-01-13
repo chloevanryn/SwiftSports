@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 style="margin-top: 50px; margin-bottom: 50px; text-align: center; color: #03045E">Leave a rating for <%= @user.username %> <i class="fas fa-solid fa-star"></i></h1>
+  <h1 class="heady2" style="margin-top: 50px; margin-bottom: 50px; text-align: center">Leave a rating for <%= @user.username %> <i class="fas fa-solid fa-star"></i></h1>
   <div class="container">
   <div class="card" style=" border-radius: 2%;">
     <%= simple_form_for [@user, @rating] do |f| %>

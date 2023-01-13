@@ -31,10 +31,10 @@
 <div class="container-fluid" style="background-size: cover; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/262524/pexels-photo-262524.jpeg);">
     <div class="row h-100 align-items-center">
         <div class="col-12 text-center">
-            <h1 class="header" style="padding: 50px"><b>Find a group to join or create your own!</b></h1>
+            <h1 class="header" style="padding: 50px; font-size: 40px"><b>Find a group to join or create your own!</b></h1>
             <div class="card" id="main" style="width: 50%; height: 220px; margin: 0 auto;">
-                <div class="card-body">
-                    <p>Are you looking for a way to connect with people who share your passion for sports? Look no further! We offer a variety of groups that allow you to connect with like-minded individuals, regardless of the sport they play.</p>
+                <div class="card-body" style="font-size: 19px; margin-top: 15px">
+                    <p class="group_description">Are you looking for a way to connect with people who share your passion for sports? Look no further! We offer a variety of groups that allow you to connect with like-minded individuals, regardless of the sport they play.</p>
                     <p>By joining one of our groups, you'll have the opportunity to discuss strategies, share tips and tricks, and even organize virtual or in-person events with other members. Whether you're a beginner or an experienced player, there's a group for you.</p>
                     <p>So why wait? Sign up today and start connecting with people who share your love of sports. Who knows, you may even make some lifelong friends!</p>
                 </div>
@@ -47,7 +47,7 @@
 </div>
 <div class="container mx-auto" style="padding: 20px">
   <div class="row justify-content-center">
-    <h3 class="subheader text-center" style="padding: 50px"><b>Browse available groups below!</b></h3>
+    <h3 class="text-center heady2" style="padding: 50px"><b>Browse available groups below!</b></h3>
     <div class="cards" id="group-cards">
     <% @groups.each do |group| %>
       <%= link_to group_path(group), class: "b-primary" do %>

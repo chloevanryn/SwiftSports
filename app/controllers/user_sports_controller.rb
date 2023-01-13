@@ -15,7 +15,6 @@ class UserSportsController < ApplicationController
     # @level = Level.find(params[:user_sport][:level_id])
 
     if @sports == @user_sport
-      puts :scope
     else
       @sports.each do |sport|
       @user_sport = UserSport.new
