@@ -1,3 +1,5 @@
-<h2><%= event.title %></h2>
-<p><%= event.location %></p>
-<%= link_to event.title, event_path(event) %>
+<div class="container text-center">
+  <h2 class="mapboxgl-popup-content"><%= link_to event.title, event_path(event)%></h2>
+    <h5 class= "text-center" id="location"><%= event.location %></h5>
+    <h5 class= "text-center" id="date"><%= event.date.strftime("%d/%m/%Y") %></h5>
+</div>

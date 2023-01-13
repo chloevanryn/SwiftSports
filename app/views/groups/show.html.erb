@@ -36,17 +36,18 @@
           <h5 class="text-center">This group has no members</h5>
           <h4 class="text-center">&#128550</h4>
         <% else %>
-          <div class="row justify-content-center">
+          <div class="d-flex justify-content-center align-items-center text-center">
             <% @users.each do |user| %>
-              <div class="col-md-4 my-2">
+              <div class="col-md-4 my-2 text-center">
                 <%= link_to user_path(user), class: "a-primary" do %>
                   <div class="text-center">
                   <% if user.photo.attached? %>
                     <%= cl_image_tag user.photo.key, class: 'rounded-circle pic', height: '100', width: '100' %>
+                    <h4 class="b-primary" style="margin: auto; padding: 5px"> <%= user.username %></h4>
                   <%else%>
                     <%= image_tag "default_avatar.png", class: 'rounded-circle pic', height: '100', width: '100' %>
+                    <h4 class="b-primary" style="margin: auto; padding: 5px"> <%= user.username %></h4>
                   <%end%>
-                  <h4 class="b-primary" style="margin: auto; padding: 5px"> <%= user.username %></h4>
                   </div>
                 <% end %>
               </div>
