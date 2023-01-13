@@ -62,7 +62,8 @@
     <% end %>
     <% @user.ratings.each do |f|%>
     <div class="d-flex flex-column row text-center mt-2">
-      	&#11088; <%= f.comment %> &#11088;
+    <%= current_user.username %> said:
+    &#11088; <%= f.comment %> &#11088;
     </div>
     <% end %>
   </div>
