@@ -47,7 +47,7 @@
   --p: 0%
 }
 </style>
-<div class="container-fluid" style="background-size: 100%; object-fit: cover; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/?orientation=landscape&<%= @event.sport.name.downcase %>')">
+<div class="container-fluid" style="background-size: cover; object-fit: cover; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/?orientation=landscape&<%= @event.sport.name.downcase %>')">
   <div class="row justify-content-center">
       <div class="col-5">
       <div class="container mt-5">
@@ -118,7 +118,7 @@
         </div>
       </div>
     </div>
-  <div class="text-center mx-auto">
+  <div class="text-center mx-auto mb-5">
     <div><br>
       <% if current_user %>
         <% if current_user.participating_users.find_by(event_id: @event.id) %>
