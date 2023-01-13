@@ -9,9 +9,9 @@
   justify-content: center;
   align-items: center;
   font-size: large;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   min-height: 300px;
   margin: 300px auto;
   margin-top: 150px;
@@ -35,7 +35,7 @@
 // }
 
 .pic {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .heading {
@@ -46,7 +46,10 @@
   margin-bottom: 30px;
   // font-weight: bold;
 }
+
 // .square {
 //   border: 2px;
 //   border-color: #03045E;
 // }
+
+// pic-holder
